@@ -131,7 +131,7 @@ Here’s how you can join the journey:
 
 ⸻
 
-✨ No contribution is too small. Whether you report a bug, suggest a feature, or just support the project, you’re making a difference. <br>Thank you for being part of **Curving Reality** 🚀
+✨ No contribution is too small. Whether you report a bug, suggest a feature, or just support the project, you’re making a difference. <br>Thank you for being part of "../docs"**Curving Reality** 🚀
 
 <hr>
 

@@ -1,7 +1,9 @@
 name: curving_reality_library
 description: "The Curving Reality Flutter Library is designed to accelerate your app development workflow. It provides a rich collection of efficient and visually appealing UI components, ready-to-use screens, and practical services, including powerful tools for forms validation."
 version: 1.0.0
-homepage:
+homepage: https://www.curvingreality.com/
+repository: https://github.com/curvingreality/flutter-library/
+issue_tracker: https://github.com/curvingreality/flutter-library/issues
 
 environment:
   sdk: ">=3.2.6 <4.0.0"

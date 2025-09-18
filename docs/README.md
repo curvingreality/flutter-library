@@ -29,7 +29,7 @@ Keep in mind that this is the representation of the Android UI. The style and th
 
 <div class="flex-center">
     <div class="smartphone-container">
-        <iframe src="https://www.curvingreality.com/projects/flutter-library" style="height: 900px; border: solid 6px #111; border-radius: 36px; box-shadow: 0px 15px 15px #b0b0b0"></iframe>
+        <iframe src="https://www.curvingreality.com/projects/flutter-library/" style="height: 900px; border: solid 6px #111; border-radius: 36px; box-shadow: 0px 15px 15px #b0b0b0"></iframe>
     </div>
 </div>
 <br><br><br>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="description" content="Description">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+</head>
+
+<body>
+  <style>
+    .button,
+    .button-outline {
+      border: solid 1px transparent;
+      padding: 1.2rem 1.2rem 1.2rem 1.2rem !important;
+      border-radius: 0.4rem;
+      background-color: #a3195b;
+      color: white !important;
+      transition: background-color 0.2s ease;
+      font-weight: 600 !important;
+      font-size: 1rem !important;
+      letter-spacing: 0.06rem !important;
+      text-decoration: none !important;
+      line-height: 0;
+    }
+
+    .button:hover,
+    .button-outline:hover {
+      cursor: pointer;
+      background-color: #8f174c;
+    }
+
+    .button-outline {
+      background-color: transparent;
+      border: 1px solid #a3195b;
+      color: #a3195b !important;
+    }
+
+    .button-outline:hover {
+      background-color: #a3195b;
+      color: white !important;
+    }
+
+    .flex,
+    .navbar-container {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .flex-center {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .smartphone-container {
+      width: 450px;
+    }
+
+    strong {
+      color: #a3195b !important;
+    }
+
+    .sidebar-logo {
+      width: 80%;
+      margin: auto;
+    }
+
+    .sidebar-logo img {
+      width: 80%;
+    }
+
+    .navbar-container {
+      display: flex;
+      align-items: center;
+    }
+
+    .navbar-container p {
+      width: 100px;
+    }
+
+    .sidebar-divider {
+      border: none;
+      border-top: 1px solid #eee;
+      margin: 1rem 0;
+    }
+
+    @media (max-width: 768px) {
+      .search {
+        margin-top: 2.3rem !important;
+      }
+
+      .sidebar-toggle {
+        top: 0 !important;
+        bottom: auto !important;
+        padding: 1rem !important;
+      }
+
+      .markdown-section {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+      }
+
+      .main-logo {
+        padding-top: 3rem !important;
+      }
+
+      .navbar-container .button,
+      .navbar-container .button-outline {
+        max-width: 100px;
+      }
+
+      .flex {
+        flex-direction: column;
+      }
+
+      .flex-center {
+        flex-direction: column;
+      }
+
+      .button,
+      .button-outline {
+        width: 100% !important;
+        text-align: center !important;
+      }
+
+      .smartphone-container {
+        width: 105%;
+      }
+
+      iframe {
+        height: 800px !important;
+      }
+    }
+  </style>
+  <div id="app"></div>
+  <script>
+    window.$docsify = {
+      name: '',
+      repo: '',
+      loadNavbar: true,
+      loadSidebar: true,
+      autoSidebar: true,
+      subMaxLevel: 2,
+      themeColor: '#a3195b',
+      search: {
+        paths: 'auto',
+        placeholder: 'Search...',
+        noData: 'No results found',
+        depth: 3
+      },
+    }
+  </script>
+  <!-- Docsify v4 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+  <script src="//unpkg.com/docsify/lib/plugins/search.min.js"></script>
+  <script src="//unpkg.com/docsify-auto-sidebar/dist/docsify-auto-sidebar.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1.22/components/prism-dart.min.js"></script>
+  <script src="https://unpkg.com/docsify-copy-code@2"></script>
+  <!-- Other -->
+</body>
+
+</html>

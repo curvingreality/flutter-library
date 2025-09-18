@@ -6,19 +6,9 @@ It provides a rich collection of efficient and visually appealing **UI component
 Its core mission is to **reduce boilerplate code and simplify common development tasks**, allowing you to deliver **high-quality applications more quickly**.<br>
 While focusing on productivity, the library also emphasizes **design consistency** and **user experience**, helping you create apps that are not only functional but also beautifully crafted.
 
-# Example
+# Docs and examples
 
-Navigate this interactive example with all the components.<br>
-Keep in mind that this is the representation of the Android UI. The style and the animations will be different when running on iOS.
-
----
-
-<div class="flex-center">
-    <div class="smartphone-container">
-        <iframe src="https://www.curvingreality.com/projects/flutter-library" style="height: 900px; border: solid 6px #111; border-radius: 36px; box-shadow: 0px 15px 15px #b0b0b0"></iframe>
-    </div>
-</div>
-<br><br><br>
+[Click here](https://curvingreality.github.io/flutter-library/#/)
 
 # How to use
 

@@ -4,10 +4,9 @@
 <hr>
 
 <div class="flex-center">
-    <a class="button-outline" href="#/design">🎨&nbsp;&nbsp;Design</a>
+    <a class="button-outline" href="#/services/README">⚙️&nbsp;&nbsp;Services</a>
     <a class="button-outline" href="#/widgets/README">🧩&nbsp;&nbsp;Widgets</a>
     <a class="button-outline" href="#/screens/README">📱&nbsp;&nbsp;Screens</a>
-    <a class="button-outline" href="#/services/README">⚙️&nbsp;&nbsp;Services</a>
 </div>
 
 <br><br>

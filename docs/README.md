@@ -39,12 +39,13 @@ Keep in mind that this is the representation of the Android UI. The style and th
 
 ## Install
 
-Run these commands in your Flutter project to install the library and the dependencies.
+Run this command in your Flutter project to install the library
 
 ```
 flutter pub add curving_reality_library
-flutter pub add animate_do
 ```
+
+!> If you want to use the ready-to-use screens you need to add the [animate_do package](https://pub.dev/packages/animate_do)
 
 ## Import
 

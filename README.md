@@ -22,7 +22,7 @@ Run this command in your Flutter project to install the library
 flutter pub add curving_reality_library
 ```
 
-!> If you want to use the ready-to-use screens you need to add the [animate_do package](https://pub.dev/packages/animate_do)
+If you want to use the ready-to-use screens you need to add the [animate_do package](https://pub.dev/packages/animate_do)
 
 ## Import
 

@@ -158,4 +158,6 @@ class CuReIcons {
       CuReUtils.isIos() ? CupertinoIcons.heart_fill : Icons.favorite;
   static IconData get star =>
       CuReUtils.isIos() ? CupertinoIcons.star_fill : Icons.star;
+  static IconData get leaderboard =>
+      CuReUtils.isIos() ? CupertinoIcons.chart_bar : Icons.leaderboard;
 }

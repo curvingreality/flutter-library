@@ -171,93 +171,100 @@ class _CuReDropdownState extends State<CuReDropdown>
                   child: SlideTransition(
                     position: slide,
                     child: Material(
-                      elevation: 8,
-                      surfaceTintColor: CuReDesign.useDarkMode
-                          ? CuReDesign.blackColor
-                          : CuReDesign.whiteColor,
-                      borderRadius:
-                          BorderRadius.circular(CuReDesign.borderRadius),
-                      clipBehavior: Clip.antiAlias,
-                      child: SingleChildScrollView(
-                          child: Container(
-                        constraints: BoxConstraints(
-                          maxHeight: widget.dropdownMaxHeight,
-                          minWidth: menuWidth,
-                          maxWidth: menuWidth,
-                        ),
-                        child:
-                            Column(mainAxisSize: MainAxisSize.min, children: [
-                          if (widget.title != null)
-                            Container(
-                                width: double.infinity,
-                                padding: const EdgeInsets.only(
-                                    left: 14, top: 14, bottom: 5),
-                                child: Text(widget.title!,
-                                    style: const TextStyle(
-                                      fontWeight: FontWeight.w600,
-                                    ))),
-                          ListView.builder(
-                            padding: EdgeInsets.zero,
-                            shrinkWrap: true,
-                            itemExtent: _itemExtent, // altezza costante
-                            itemCount: widget.items.length,
-                            itemBuilder: (context, index) {
-                              final item = widget.items[index];
-                              return InkWell(
-                                splashFactory: Utils.getSplashFactory(),
-                                onTap: item.disabled != null && item.disabled!
-                                    ? null
-                                    : () {
-                                        widget.onChanged(item);
-                                        _close();
-                                      },
-                                child: Container(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 14),
-                                  alignment: Alignment.centerLeft,
-                                  decoration: index < widget.items.length - 1
-                                      ? const BoxDecoration(
-                                          border: Border(
-                                            bottom: BorderSide(
-                                                width: 0.6,
-                                                color: Color(0x11000000)),
-                                          ),
-                                        )
-                                      : null,
-                                  child: Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      if (item.icon != null) ...[
-                                        Icon(
-                                          item.icon,
-                                          size: 18,
-                                          color: item.color,
-                                        ),
-                                        const SizedBox(width: 8),
-                                      ],
-                                      Expanded(
-                                        child: Text(
-                                          item.label!,
-                                          style: TextStyle(
-                                            color: item.disabled != null &&
-                                                    item.disabled!
-                                                ? Colors.grey
-                                                : item.color,
-                                            height: 0,
-                                          ),
-                                          overflow: TextOverflow.ellipsis,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              );
-                            },
+                        elevation: 8,
+                        surfaceTintColor: CuReDesign.useDarkMode
+                            ? CuReDesign.blackColor
+                            : CuReDesign.whiteColor,
+                        borderRadius:
+                            BorderRadius.circular(CuReDesign.borderRadius),
+                        clipBehavior: Clip.antiAlias,
+                        child: Container(
+                          constraints: BoxConstraints(
+                            maxHeight: widget.dropdownMaxHeight,
+                            minWidth: menuWidth,
+                            maxWidth: menuWidth,
                           ),
-                        ]),
-                      )),
-                    ),
+                          child:
+                              Column(mainAxisSize: MainAxisSize.min, children: [
+                            if (widget.title != null)
+                              Container(
+                                  width: double.infinity,
+                                  padding: const EdgeInsets.only(
+                                      left: 14, top: 14, bottom: 5),
+                                  child: Text(widget.title!,
+                                      style: const TextStyle(
+                                        fontWeight: FontWeight.w600,
+                                      ))),
+                            SingleChildScrollView(
+                                child: Container(
+                              constraints: BoxConstraints(
+                                maxHeight: widget.dropdownMaxHeight -
+                                    (widget.title != null ? 40 : 0),
+                              ),
+                              child: ListView.builder(
+                                padding: EdgeInsets.zero,
+                                shrinkWrap: true,
+                                itemExtent: _itemExtent, // altezza costante
+                                itemCount: widget.items.length,
+                                itemBuilder: (context, index) {
+                                  final item = widget.items[index];
+                                  return InkWell(
+                                    splashFactory: Utils.getSplashFactory(),
+                                    onTap:
+                                        item.disabled != null && item.disabled!
+                                            ? null
+                                            : () {
+                                                widget.onChanged(item);
+                                                _close();
+                                              },
+                                    child: Container(
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 14),
+                                      alignment: Alignment.centerLeft,
+                                      decoration: index <
+                                              widget.items.length - 1
+                                          ? const BoxDecoration(
+                                              border: Border(
+                                                bottom: BorderSide(
+                                                    width: 0.6,
+                                                    color: Color(0x11000000)),
+                                              ),
+                                            )
+                                          : null,
+                                      child: Row(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        children: [
+                                          if (item.icon != null) ...[
+                                            Icon(
+                                              item.icon,
+                                              size: 18,
+                                              color: item.color,
+                                            ),
+                                            const SizedBox(width: 8),
+                                          ],
+                                          Expanded(
+                                            child: Text(
+                                              item.label!,
+                                              style: TextStyle(
+                                                color: item.disabled != null &&
+                                                        item.disabled!
+                                                    ? Colors.grey
+                                                    : item.color,
+                                                height: 0,
+                                              ),
+                                              overflow: TextOverflow.ellipsis,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  );
+                                },
+                              ),
+                            ))
+                          ]),
+                        )),
                   ),
                 ),
               ),

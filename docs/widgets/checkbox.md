@@ -28,3 +28,5 @@ CuReCheckbox(
 | `color` | `Color` | Defines the color of the selected checkbox. Default is **CuReDesign.primaryColor** or **CuReDesign.disabledColor** if disabled | ❌ |
 | `label` | `String` | If set it shows a label next to the checkbox | ❌ |
 | `disabled` | `bool` | If set to true the checkbox is disabled and can't be checked/unchecked | ❌ |
+| `size` | `double` | Checkbox width and height | ❌ |
+| `icon` | `IconData` | Icon to show inside the checkbox when selected. Default is **CuReIcons.check** | ❌ |

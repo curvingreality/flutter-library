@@ -1,16 +1,21 @@
-## [1.0.0] - 2025-09-18
+## [1.0.1] - 2025-09-22
 
 ### Added
 
-- First **stable release** of the library
+- New button type: secondary
+- New fully customizable checkbox widget
+- Utils: dynamicWidth and dynamicHeight methods
+- New icon: leaderboard
 
 ### Changed
 
-- N/A
+- Welcome Screen: logo now accepts a widget as a parameter
+- Dropdown Widget: now items scroll under the title
 
 ### Fixed
 
-- N/A
+- Dropdown Widget: items scroll overflow
+- Welcome Screen: screen overflow when logo is set
 
 ### Deprecated
 
@@ -23,5 +28,10 @@
 ### Security
 
 - N/A
+
+### Code
+
+- Checkbox code refactoring
+- Utils methods return types
 
 ---

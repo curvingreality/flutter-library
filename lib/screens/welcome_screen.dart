@@ -16,7 +16,7 @@ class CuReWelcomeScreen extends StatefulWidget {
   final List<CuReWelcomeScreenSection> sections;
   final String? finishButtonLabel;
   final Function? onFinish;
-  final String? logo;
+  final Widget? logo;
   final Image? background;
 
   @override
@@ -102,18 +102,16 @@ class _CuReWelcomeScreenState extends State<CuReWelcomeScreen> {
                       ? FadeIn(
                           duration: CuReDesign.animationDurations[
                               CuReAnimationDuration.medium]!,
-                          child: ClipRRect(
-                              borderRadius: BorderRadius.circular(50),
-                              child: Image.asset(
-                                widget.logo!,
-                                width: 70,
-                                height: 70,
-                                fit: BoxFit.cover,
-                              )))
+                          child: SizedBox(
+                            height: 70,
+                            child: widget.logo!,
+                          ),
+                        )
                       : null,
                 ),
                 SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.68,
+                  height: MediaQuery.of(context).size.height * 0.68 -
+                      (widget.logo != null ? 32 : 0),
                   child: Stack(
                     children: [
                       PageView(

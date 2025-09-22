@@ -18,7 +18,13 @@ CuReWelcomeScreen(
         Navigator.of(context).pop();
         // Do something...
     },
-    logo: 'assets/images/logo.png',
+    logo: Image.asset(
+        CuReUtils.darkModeWrapper(
+            'assets/images/logo-icon-dark.png',
+            'assets/images/logo-icon-white.png',
+        ),
+        width: 100,
+    ),
     sections: [
         CuReWelcomeScreenSection(
             title: 'Welcome aboard ❤️',
@@ -63,5 +69,5 @@ CuReWelcomeScreen(
 | `sections`          | `List<CuReWelcomeScreenSection>` | The list of sections                                    | ✅        |
 | `finishButtonLabel` | `String`                         | The label showed inside the finish button               | ❌        |
 | `onFinish`          | `Function(void)`                 | Emits an event when the user taps on the Finish button  | ❌        |
-| `logo`              | `String`                         | Path of a custom logo to show at the top of the screen  | ❌        |
+| `logo`              | `Widget`                         | Custom widget to show on the top of the pages           | ❌        |
 | `background`        | `Image`                          | Adds a custom image background at the top of the screen | ❌        |

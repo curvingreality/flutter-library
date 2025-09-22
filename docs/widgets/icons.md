@@ -96,4 +96,5 @@ CuReIcons.arrowLeft
 CuReIcons.chartPie
 CuReIcons.heart
 CuReIcons.star
+CuReIcons.leaderboard
 ```

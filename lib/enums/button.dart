@@ -1,4 +1,4 @@
-enum CuReButtonType { primary, outlined, text }
+enum CuReButtonType { primary, outlined, text, secondary }
 
 enum CuReIconPosition { prefix, suffix }
 

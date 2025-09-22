@@ -76,7 +76,15 @@ export './design.dart';
 export './icons.dart';
 
 class CuReUtils {
-  static isIos() {
+  static dynamicWidth(BuildContext context, double percentage) {
+    return MediaQuery.of(context).size.width * (percentage / 100);
+  }
+
+  static dynamicHeight(BuildContext context, double percentage) {
+    return MediaQuery.of(context).size.height * (percentage / 100);
+  }
+
+  static bool isIos() {
     try {
       return Platform.isIOS || Platform.isMacOS;
     } catch (e) {
@@ -84,7 +92,7 @@ class CuReUtils {
     }
   }
 
-  static navigateTo(BuildContext context, Widget screen) {
+  static void navigateTo(BuildContext context, Widget screen) {
     if (CuReUtils.isIos()) {
       Navigator.push(
         context,
@@ -102,11 +110,11 @@ class CuReUtils {
     }
   }
 
-  static navigateBack(BuildContext context) {
+  static void navigateBack(BuildContext context) {
     Navigator.pop(context);
   }
 
-  static navigateReplace(BuildContext context, Widget screen) {
+  static void navigateReplace(BuildContext context, Widget screen) {
     if (CuReUtils.isIos()) {
       Navigator.pushReplacement(
         context,
@@ -124,7 +132,7 @@ class CuReUtils {
     }
   }
 
-  static darkModeWrapper(dynamic whiteMode, dynamic darkMode) {
+  static dynamic darkModeWrapper(dynamic whiteMode, dynamic darkMode) {
     return CuReDesign.useDarkMode ? darkMode : whiteMode;
   }
 

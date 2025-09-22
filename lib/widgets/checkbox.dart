@@ -1,5 +1,5 @@
 import 'package:curving_reality_library/curving_reality_library.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:curving_reality_library/utils.dart';
 import 'package:flutter/material.dart';
 
 class CuReCheckbox extends StatefulWidget {
@@ -10,6 +10,8 @@ class CuReCheckbox extends StatefulWidget {
     this.color,
     this.label,
     this.disabled,
+    this.size,
+    this.icon,
   });
 
   final bool? checked;
@@ -17,6 +19,8 @@ class CuReCheckbox extends StatefulWidget {
   final Color? color;
   final String? label;
   final bool? disabled;
+  final double? size;
+  final IconData? icon;
 
   @override
   State<CuReCheckbox> createState() => _CuReCheckboxState();
@@ -30,62 +34,80 @@ class _CuReCheckboxState extends State<CuReCheckbox> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          if (CuReUtils.isIos()) _getIosCheckbox(),
-          if (!CuReUtils.isIos()) _getAndroidCheckbox(),
+          InkWell(
+            splashFactory: Utils.getSplashFactory(),
+            onTap: _onTap,
+            child: AnimatedContainer(
+              duration: const Duration(milliseconds: 100),
+              width: widget.size ?? 20,
+              height: widget.size ?? 20,
+              decoration: BoxDecoration(
+                color: _getBackgroundColor(),
+                border: Border.all(
+                  color: _getBorderColor(),
+                  width: 1.0,
+                ),
+                borderRadius:
+                    BorderRadius.circular(CuReDesign.borderRadius / 2),
+              ),
+              child: widget.checked != null && widget.checked!
+                  ? Icon(_getIcon(),
+                      color: CuReDesign.whiteColor, size: _getIconSize())
+                  : null,
+            ),
+          ),
           if (widget.label != null)
             Padding(
               padding: const EdgeInsets.only(left: 8),
-              child: CuReText(widget.label!),
+              child: CuReText(
+                widget.label!,
+                color: widget.color ?? CuReDesign.textColor,
+              ),
             )
         ]);
   }
 
-  Widget _getIosCheckbox() {
-    return ConstrainedBox(
-        constraints: const BoxConstraints.tightFor(width: 20, height: 20),
-        child: CupertinoCheckbox(
-          activeColor: widget.color ?? CuReDesign.primaryColor,
-          value: widget.checked ?? false,
-          onChanged: widget.onChanged != null && _isToggable()
-              ? (value) => widget.onChanged!(value)
-              : null,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(
-              CuReDesign.borderRadius / 2,
-            ),
-          ),
-          side: BorderSide(
-            width: 1.0,
-            color: _getBorderColor(),
-          ),
-        ));
+  void _onTap() {
+    if (widget.onChanged != null && _isToggable()) {
+      widget.onChanged!(!(widget.checked ?? false));
+    }
   }
 
-  Widget _getAndroidCheckbox() {
-    return ConstrainedBox(
-        constraints: const BoxConstraints.tightFor(width: 20, height: 20),
-        child: Checkbox(
-          activeColor: widget.color ?? CuReDesign.primaryColor,
-          value: widget.checked ?? false,
-          onChanged: widget.onChanged != null && _isToggable()
-              ? (value) => widget.onChanged!(value)
-              : null,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(
-              CuReDesign.borderRadius / 2,
-            ),
-          ),
-          side: BorderSide(
-            width: 1.0,
-            color: _getBorderColor(),
-          ),
-        ));
+  IconData _getIcon() {
+    if (widget.icon != null) {
+      return widget.icon!;
+    }
+    return CuReIcons.check;
+  }
+
+  double _getIconSize() {
+    if (widget.size != null) {
+      return widget.size! * 0.8;
+    }
+    return 16;
+  }
+
+  Color _getBackgroundColor() {
+    if (widget.disabled != null && widget.disabled!) {
+      return CuReDesign.disabledColor;
+    }
+    if (widget.checked != null && widget.checked!) {
+      return widget.color ?? CuReDesign.primaryColor;
+    }
+    return Colors.transparent;
   }
 
   Color _getBorderColor() {
-    return widget.disabled != null && widget.disabled!
-        ? Colors.grey.withAlpha(70)
-        : Colors.grey;
+    if (widget.disabled != null && widget.disabled!) {
+      return CuReDesign.disabledColor;
+    }
+    if (widget.color != null) {
+      return widget.color!;
+    }
+    if (widget.checked != null && widget.checked!) {
+      return CuReDesign.primaryColor;
+    }
+    return Colors.grey;
   }
 
   bool _isToggable() {

@@ -218,26 +218,15 @@ class _CuReButtonState extends State<CuReButton> {
       shadowColor: CuReUtils.isIos()
           ? WidgetStateProperty.all(Colors.transparent)
           : null,
-      backgroundColor:
-          widget.type == null || widget.type == CuReButtonType.primary
-              ? WidgetStateProperty.resolveWith<Color>(
-                  (Set<WidgetState> states) {
-                    if (states.contains(WidgetState.disabled) ||
-                        (widget.isLoading != null && widget.isLoading!)) {
-                      if (CuReDesign.useDarkMode) {
-                        return CuReUtils.darken(CuReDesign.disabledColor, 0.5);
-                      } else {
-                        return CuReDesign.disabledColor;
-                      }
-                    } else {
-                      if (widget.color != null) {
-                        return widget.color!;
-                      }
-                      return CuReDesign.primaryColor;
-                    }
-                  },
-                )
-              : null,
+      backgroundColor: widget.type == null ||
+              widget.type == CuReButtonType.primary ||
+              widget.type == CuReButtonType.secondary
+          ? WidgetStateProperty.resolveWith<Color>(
+              (Set<WidgetState> states) {
+                return _getSurfaceColor(states);
+              },
+            )
+          : null,
       tapTargetSize: MaterialTapTargetSize.shrinkWrap,
       overlayColor: WidgetStateProperty.all(_getOverlayColor()),
       padding: WidgetStateProperty.all(EdgeInsets.zero),
@@ -275,13 +264,41 @@ class _CuReButtonState extends State<CuReButton> {
     );
   }
 
+  Color _getSurfaceColor(Set<WidgetState> states) {
+    if (states.contains(WidgetState.disabled) ||
+        (widget.isLoading != null && widget.isLoading!)) {
+      if (CuReDesign.useDarkMode) {
+        return CuReUtils.darken(CuReDesign.disabledColor, 0.5);
+      } else {
+        return CuReDesign.disabledColor;
+      }
+    } else {
+      if (widget.color != null) {
+        if (widget.type == CuReButtonType.secondary) {
+          return widget.color!.withAlpha(40);
+        } else {
+          return widget.color!;
+        }
+      }
+      if (widget.type == CuReButtonType.secondary) {
+        return CuReDesign.primaryColor.withAlpha(40);
+      }
+      return CuReDesign.primaryColor;
+    }
+  }
+
   Color? _getOverlayColor() {
     if (widget.color != null) {
       if (widget.type == null || widget.type == CuReButtonType.primary) {
         return CuReUtils.darken(widget.color!, 0.15);
+      } else if (widget.type == CuReButtonType.secondary) {
+        return widget.color!.withAlpha(70);
       } else {
         return widget.color!.withAlpha(50);
       }
+    }
+    if (widget.type == CuReButtonType.secondary) {
+      return CuReDesign.primaryColor.withAlpha(70);
     }
     return widget.type == null || widget.type == CuReButtonType.primary
         ? CuReUtils.darken(CuReDesign.primaryColor, 0.15)

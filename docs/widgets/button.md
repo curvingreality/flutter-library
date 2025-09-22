@@ -20,6 +20,11 @@ CuReButton(icon: CuReIcons.close, type: CuReButtonType.text, onPressed: () {
     // Something to do
 });
 
+// Secondary button with label and icon
+CuReButton(icon: CuReIcons.close, type: CuReButtonType.secondary, onPressed: () {
+    // Something to do
+});
+
 // Disabled button
 CuReButton(label: 'Text', disabled: true);
 ```
@@ -27,7 +32,7 @@ CuReButton(label: 'Text', disabled: true);
 ## Properties
 | Property | Type | Description | Mandatory |
 | --------------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------- | --------- |
-| `type` | `CuReButtonType` | Primary, outlined, text. Default is primary | ❌ |
+| `type` | `CuReButtonType` | Primary, outlined, text, secondary. Default is primary | ❌ |
 | `shape` | `CuReShape` | Regular, rounded, squared. Default is the **CuReDesign.defaultElementsShape** (regular) | ❌ |
 | `label` | `String` | Defines a label for the button| ❌ |
 | `icon` | `IconData` | Set an icon to display inside the button | ❌ |

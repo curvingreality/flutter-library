@@ -45,3 +45,5 @@ Column(
 | `color`      | `Color`             | The **color** of the selected radio. Default: **CuReDesign.primaryColor** or **CuReDesign.disabledColor** if disabled | ❌        |
 | `label`      | `String`            | If set it shows a label next to the radio                                                                             | ❌        |
 | `disabled`   | `bool`              | If **true**, the radio is disabled and cannot be selected                                                             | ❌        |
+| `size`       | `double`            | Radio width and height                                                                                                | ❌        |
+| `icon`       | `IconData`          | Icon to show inside the radio when selected. Default is **CuReIcons.circle**                                          | ❌        |

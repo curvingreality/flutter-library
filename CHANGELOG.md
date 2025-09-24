@@ -1,21 +1,17 @@
-## [1.0.1] - 2025-09-22
+## [1.0.2] - 2025-09-24
 
 ### Added
 
-- New button type: secondary
-- New fully customizable checkbox widget
-- Utils: dynamicWidth and dynamicHeight methods
-- New icon: leaderboard
+- New fully customizable radio widget
+- New icon: circle
 
 ### Changed
 
-- Welcome Screen: logo now accepts a widget as a parameter
-- Dropdown Widget: now items scroll under the title
+- N/A
 
 ### Fixed
 
-- Dropdown Widget: items scroll overflow
-- Welcome Screen: screen overflow when logo is set
+- Checkbox Widget: on tap radius effect
 
 ### Deprecated
 
@@ -31,7 +27,6 @@
 
 ### Code
 
-- Checkbox code refactoring
 - Utils methods return types
 
 ---

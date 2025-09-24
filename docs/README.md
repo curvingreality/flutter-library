@@ -103,9 +103,9 @@ We’re just getting started – here’s what’s coming next for **Curving Rea
 
 ## What are we working on
 
-- [ ] New button type
-- [ ] Custom checkboxes
-- [ ] Custom radio buttons
+- [x] New button type
+- [x] Custom checkboxes
+- [x] Custom radio buttons
 - [ ] Custom dialogs and bottom sheets
 - [ ] "Insert code" type field
 - [ ] Improved text fields UI

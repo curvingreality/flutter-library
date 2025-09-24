@@ -76,11 +76,11 @@ export './design.dart';
 export './icons.dart';
 
 class CuReUtils {
-  static dynamicWidth(BuildContext context, double percentage) {
+  static double dynamicWidth(BuildContext context, double percentage) {
     return MediaQuery.of(context).size.width * (percentage / 100);
   }
 
-  static dynamicHeight(BuildContext context, double percentage) {
+  static double dynamicHeight(BuildContext context, double percentage) {
     return MediaQuery.of(context).size.height * (percentage / 100);
   }
 

@@ -35,6 +35,7 @@ class _CuReCheckboxState extends State<CuReCheckbox> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           InkWell(
+            borderRadius: BorderRadius.circular(CuReDesign.borderRadius / 2),
             splashFactory: Utils.getSplashFactory(),
             onTap: _onTap,
             child: AnimatedContainer(

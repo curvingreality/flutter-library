@@ -1,7 +1,5 @@
-// ignore_for_file: deprecated_member_use
-
 import 'package:curving_reality_library/curving_reality_library.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:curving_reality_library/utils.dart';
 import 'package:flutter/material.dart';
 
 class CuReRadio extends StatefulWidget {
@@ -13,6 +11,8 @@ class CuReRadio extends StatefulWidget {
     this.label,
     required this.groupValue,
     this.disabled,
+    this.size,
+    this.icon,
   });
 
   final dynamic value;
@@ -21,6 +21,8 @@ class CuReRadio extends StatefulWidget {
   final Color? color;
   final String? label;
   final bool? disabled;
+  final double? size;
+  final IconData? icon;
 
   @override
   State<CuReRadio> createState() => _CuReRadioState();
@@ -34,50 +36,91 @@ class _CuReRadioState extends State<CuReRadio> {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        if (CuReUtils.isIos()) _getIosCheckbox(),
-        if (!CuReUtils.isIos()) _getAndroidCheckbox(),
+        InkWell(
+          borderRadius: BorderRadius.circular(50),
+          splashFactory: Utils.getSplashFactory(),
+          onTap: _onTap,
+          child: AnimatedContainer(
+            duration: const Duration(milliseconds: 100),
+            width: widget.size ?? 20,
+            height: widget.size ?? 20,
+            decoration: BoxDecoration(
+              color: _getBackgroundColor(),
+              border: Border.all(
+                color: _getBorderColor(),
+                width: 1.0,
+              ),
+              borderRadius: BorderRadius.circular(50),
+            ),
+            child: widget.value == widget.groupValue
+                ? Icon(_getIcon(),
+                    color: CuReDesign.whiteColor, size: _getIconSize())
+                : null,
+          ),
+        ),
         if (widget.label != null)
           Padding(
             padding: const EdgeInsets.only(left: 8),
-            child: CuReText(widget.label!),
+            child: CuReText(
+              widget.label!,
+              color: widget.color ?? CuReDesign.textColor,
+            ),
           )
       ],
     );
   }
 
-  Widget _getIosCheckbox() {
-    return ConstrainedBox(
-        constraints: const BoxConstraints.tightFor(width: 20, height: 20),
-        child: CupertinoRadio<dynamic>(
-          value: widget.value,
-          activeColor: _getColor(),
-          groupValue: widget.groupValue,
-          onChanged: _isToggable() ? (value) => widget.onChanged(value) : null,
-        ));
+  void _onTap() {
+    if (_isToggable()) {
+      widget.onChanged(widget.value);
+    }
   }
 
-  Widget _getAndroidCheckbox() {
-    return ConstrainedBox(
-        constraints: const BoxConstraints.tightFor(width: 20, height: 20),
-        child: Radio<dynamic>(
-          value: widget.value,
-          activeColor: _getColor(),
-          groupValue: widget.groupValue,
-          onChanged: _isToggable() ? (value) => widget.onChanged(value) : null,
-        ));
+  IconData _getIcon() {
+    if (widget.icon != null) {
+      return widget.icon!;
+    }
+    return CuReIcons.circle;
+  }
+
+  double _getIconSize() {
+    if (widget.size != null) {
+      if (widget.icon != null) {
+        return widget.size! * 0.8;
+      } else {
+        return widget.size! * 0.45;
+      }
+    }
+    if (widget.icon != null) {
+      return 16;
+    }
+    return 10;
+  }
+
+  Color _getBackgroundColor() {
+    if (widget.disabled != null && widget.disabled!) {
+      return CuReDesign.disabledColor;
+    }
+    if (widget.value == widget.groupValue) {
+      return widget.color ?? CuReDesign.primaryColor;
+    }
+    return Colors.transparent;
   }
 
   bool _isToggable() {
     return widget.disabled == null || !widget.disabled!;
   }
 
-  Color _getColor() {
+  Color _getBorderColor() {
     if (widget.disabled != null && widget.disabled!) {
       return CuReDesign.disabledColor;
-    } else if (widget.color != null) {
+    }
+    if (widget.color != null) {
       return widget.color!;
-    } else {
+    }
+    if (widget.value == widget.groupValue) {
       return CuReDesign.primaryColor;
     }
+    return Colors.grey;
   }
 }

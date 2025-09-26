@@ -110,7 +110,7 @@ class _CuReWelcomeScreenState extends State<CuReWelcomeScreen> {
                       : null,
                 ),
                 SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.68 -
+                  height: MediaQuery.of(context).size.height * 0.69 -
                       (widget.logo != null ? 32 : 0),
                   child: Stack(
                     children: [

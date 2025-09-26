@@ -254,7 +254,7 @@ class _CuRePaywallScreenState extends State<CuRePaywallScreen> {
     return f.format(amount);
   }
 
-  _getSubscriptionPaymentCard(
+  Widget _getSubscriptionPaymentCard(
       int i, String price, String title, Widget? child, int value) {
     int baseDelay = widget.items.length * 150;
     return FadeInUp(

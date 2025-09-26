@@ -23,6 +23,7 @@ export './widgets/switch.dart';
 export './widgets/divider.dart';
 export './widgets/app_bar.dart';
 export './widgets/text_field.dart';
+export './widgets/digits_text_field.dart';
 export 'widgets/info.dart';
 export 'widgets/expandable.dart';
 export 'widgets/progress_bar.dart';
@@ -173,7 +174,7 @@ class CuReUtils {
     }
   }
 
-  static isSystemDarkModeActive() {
+  static bool isSystemDarkModeActive() {
     Brightness brightness =
         SchedulerBinding.instance.platformDispatcher.platformBrightness;
     return brightness == Brightness.dark;

@@ -1,5 +1,5 @@
 <div class="navbar-container">
-    <p>Version 1.0.2</p>
+    <a class="link" href="https://pub.dev/packages/curving_reality_library/versions" target="_blank">Version 1.0.3</a>
+    <a class="button-outline" href="https://pub.dev/packages/curving_reality_library/" target="_blank">pub.dev</a>
     <a class="button" href="https://github.com/curvingreality/flutter-library" target="_blank">GitHub</a>
-    <a class="button-outline" href="#/LICENSE.md">License</a>
 </div>

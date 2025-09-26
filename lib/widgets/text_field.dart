@@ -30,6 +30,7 @@ class CuReTextField extends StatefulWidget {
     this.textAlign,
     this.fontSize,
     this.fontWeight,
+    this.padding,
   });
 
   final String? placeholder;
@@ -56,6 +57,7 @@ class CuReTextField extends StatefulWidget {
   final TextAlign? textAlign;
   final double? fontSize;
   final FontWeight? fontWeight;
+  final EdgeInsets? padding;
 
   @override
   State<CuReTextField> createState() => _CuReTextFieldState();
@@ -714,6 +716,9 @@ class _CuReTextFieldState extends State<CuReTextField> {
   }
 
   EdgeInsets _getPadding() {
+    if (widget.padding != null) {
+      return widget.padding!;
+    }
     if (widget.prefixIcon != null && widget.suffixIcon != null) {
       return const EdgeInsets.symmetric(horizontal: 8, vertical: 14);
     } else if (widget.prefixIcon != null && widget.suffixIcon == null) {

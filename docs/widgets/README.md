@@ -9,6 +9,7 @@
 - [Icons](widgets/icons.md)
 - [Button](widgets/button.md)
 - [Text Field](widgets/text-field.md)
+- [Digits Text Field](widgets/digits-text-field.md)
 - [Checkbox](widgets/checkbox.md)
 - [Radio](widgets/radio.md)
 - [Switch](widgets/switch.md)

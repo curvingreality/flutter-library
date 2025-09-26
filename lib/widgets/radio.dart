@@ -63,7 +63,7 @@ class _CuReRadioState extends State<CuReRadio> {
             padding: const EdgeInsets.only(left: 8),
             child: CuReText(
               widget.label!,
-              color: widget.color ?? CuReDesign.textColor,
+              color: _getTextColor(),
             ),
           )
       ],
@@ -74,6 +74,16 @@ class _CuReRadioState extends State<CuReRadio> {
     if (_isToggable()) {
       widget.onChanged(widget.value);
     }
+  }
+
+  Color _getTextColor() {
+    if (widget.color != null) {
+      return widget.color!;
+    }
+    if (CuReDesign.useDarkMode) {
+      return CuReDesign.whiteColor;
+    }
+    return CuReDesign.textColor;
   }
 
   IconData _getIcon() {

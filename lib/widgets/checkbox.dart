@@ -62,7 +62,7 @@ class _CuReCheckboxState extends State<CuReCheckbox> {
               padding: const EdgeInsets.only(left: 8),
               child: CuReText(
                 widget.label!,
-                color: widget.color ?? CuReDesign.textColor,
+                color: _getTextColor(),
               ),
             )
         ]);
@@ -72,6 +72,16 @@ class _CuReCheckboxState extends State<CuReCheckbox> {
     if (widget.onChanged != null && _isToggable()) {
       widget.onChanged!(!(widget.checked ?? false));
     }
+  }
+
+  Color _getTextColor() {
+    if (widget.color != null) {
+      return widget.color!;
+    }
+    if (CuReDesign.useDarkMode) {
+      return CuReDesign.whiteColor;
+    }
+    return CuReDesign.textColor;
   }
 
   IconData _getIcon() {

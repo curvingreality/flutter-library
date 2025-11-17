@@ -128,14 +128,15 @@ Here’s how you can join the journey:
 
 **⭐ Support the Project**<br>
 • Give the repo a star ⭐ to spread the word.<br>
-• Consider supporting the development by purchasing a commercial license if you use it in professional projects.<br>This helps us keep building new features and improving the library.
-
-⸻
-
-✨ No contribution is too small. Whether you report a bug, suggest a feature, or just support the project, you’re making a difference. <br>Thank you for being part of "."**Curving Reality** 🚀
+• Consider supporting the development by donating. Even a small amount can make a huge difference.
+<br>This helps us keep building new features and improving the library.
+<br><br><br>
+<a class="button" href="https://www.paypal.com/donate/?hosted_button_id=UNF6D5BHMZXVQ" target="_blank">Donate now ❤️</a>
+<br><br><br>
+✨ No contribution is too small. Whether you report a bug, suggest a feature, or just support the project, you’re making a difference. <br>Thank you for being part of **Curving Reality** 🚀
 
 <hr>
 
 # Who is Curving Reality?
 
-[Curving Reality](https://www.curvingreality.com/) is an italian software house that develops mobile and web apps.
+[Curving Reality](https://www.curvingreality.com/) is a project idea created by an italian solo developer.

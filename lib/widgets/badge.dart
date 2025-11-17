@@ -27,8 +27,8 @@ class CuReBadge extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
           color: color != null
-              ? color!.withAlpha(60)
-              : CuReDesign.primaryColor.withAlpha(60),
+              ? CuReUtils.lighten(color!, 0.31)
+              : CuReUtils.lighten(CuReDesign.primaryColor, 0.31),
           borderRadius: _getShape()),
       child: Padding(
         padding: padding ??
@@ -48,20 +48,17 @@ class CuReBadge extends StatelessWidget {
                 child: Icon(
                   icon,
                   size: _getIconSize(),
-                  color: color ?? CuReDesign.primaryColor,
+                  color:
+                      CuReUtils.darken(color ?? CuReDesign.primaryColor, 0.2),
                 ),
               ),
             if (label != null)
-              Padding(
-                padding: EdgeInsets.only(
-                  bottom: icon != null ? 3 : 0,
-                ),
-                child: CuReText(
-                  label!,
-                  color: color ?? CuReDesign.primaryColor,
-                  lineHeight: 0,
-                  size: fontSize ?? 12,
-                ),
+              CuReText(
+                label!,
+                color: CuReUtils.darken(color ?? CuReDesign.primaryColor, 0.2),
+                lineHeight: 0,
+                size: fontSize ?? 12,
+                weight: FontWeight.w600,
               ),
           ],
         ),

@@ -237,7 +237,7 @@ class Localization {
 }
 
 class CuReLocalization {
-  static setLanguage(String locale) {
+  static void setLanguage(String locale) {
     Localization.locale = locale;
   }
 
@@ -249,7 +249,7 @@ class CuReLocalization {
     Localization.setValues(values);
   }
 
-  static useSystemLanguage({String fallbackLanguage = 'en'}) {
+  static void useSystemLanguage({String fallbackLanguage = 'en'}) {
     try {
       Localization.locale = Platform.localeName.split('_')[0];
     } catch (e) {

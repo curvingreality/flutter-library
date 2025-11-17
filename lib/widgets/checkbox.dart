@@ -48,8 +48,7 @@ class _CuReCheckboxState extends State<CuReCheckbox> {
                   color: _getBorderColor(),
                   width: 1.0,
                 ),
-                borderRadius:
-                    BorderRadius.circular(CuReDesign.borderRadius / 2),
+                borderRadius: BorderRadius.circular(4),
               ),
               child: widget.checked != null && widget.checked!
                   ? Icon(_getIcon(),

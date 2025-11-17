@@ -162,4 +162,9 @@ class CuReIcons {
       CuReUtils.isIos() ? CupertinoIcons.chart_bar : Icons.leaderboard;
   static IconData get circle =>
       CuReUtils.isIos() ? CupertinoIcons.circle_fill : Icons.circle;
+  static IconData get sun =>
+      CuReUtils.isIos() ? CupertinoIcons.sun_max_fill : Icons.wb_sunny;
+  static IconData get sound => CuReUtils.isIos()
+      ? CupertinoIcons.speaker_3_fill
+      : Icons.volume_up_rounded;
 }

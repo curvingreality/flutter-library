@@ -137,9 +137,11 @@ class _CuReIconPickerState extends State<CuReIconPicker> {
                     ),
                   );
                 },
-                child: Icon(selectedIcon,
-                    color: widget.color ?? CuReDesign.primaryColor,
-                    size: widget.size ?? 35))),
+                child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Icon(selectedIcon,
+                        color: widget.color ?? CuReDesign.primaryColor,
+                        size: widget.size ?? 35)))),
         if (widget.label != null &&
             (widget.spaceBetween == null || widget.spaceBetween == false))
           CuReText(

@@ -35,3 +35,4 @@
 - [Rating](widgets/rating.md)
 - [Settings Group](widgets/settings-group.md)
 - [Stepper](widgets/stepper.md)
+- [Cached Network Image](widgets/cached-network-image.md)

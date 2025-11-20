@@ -1,3 +1,40 @@
+## [1.0.5] - 2025-11-20
+
+### Added
+
+- New icons: flag
+- New Widget: CuReCachedNetworkImage
+
+### Changed
+
+- N/A
+
+### Fixed
+
+- N/A
+
+### Deprecated
+
+- N/A
+
+### Removed
+
+- Removed the cached_network_image dependency
+
+### Security
+
+- N/A
+
+### Code
+
+- Methods return types
+
+### Other
+
+- N/A
+
+---
+
 ## [1.0.4] - 2025-11-17
 
 ### Added

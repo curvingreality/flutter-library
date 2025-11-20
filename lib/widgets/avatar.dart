@@ -1,7 +1,7 @@
 import 'package:curving_reality_library/curving_reality_library.dart';
 import 'package:curving_reality_library/utils.dart';
+import 'package:curving_reality_library/widgets/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 
 class CuReAvatar extends StatefulWidget {
   const CuReAvatar({
@@ -191,19 +191,16 @@ class _CuReAvatarState extends State<CuReAvatar> {
 
   Widget? _getImage() {
     if (widget.url != null) {
-      return CachedNetworkImage(
-        imageUrl: widget.url!,
+      return CuReCachedNetworkImage(
+        url: widget.url!,
         fit: BoxFit.cover,
-        placeholder: (context, url) => const SizedBox(
+        placeholder: const SizedBox(
           child: CuReCircularProgressIndicator(
             size: CuReProgressIndicatorSize.small,
           ),
         ),
-        errorWidget: (context, url, error) => const Icon(
+        errorWidget: const Icon(
           Icons.error,
-        ),
-        fadeInDuration: const Duration(
-          milliseconds: 100,
         ),
       );
     } else if (widget.path != null) {

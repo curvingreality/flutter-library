@@ -167,4 +167,6 @@ class CuReIcons {
   static IconData get sound => CuReUtils.isIos()
       ? CupertinoIcons.speaker_3_fill
       : Icons.volume_up_rounded;
+  static IconData get flag =>
+      CuReUtils.isIos() ? CupertinoIcons.flag_fill : Icons.flag;
 }

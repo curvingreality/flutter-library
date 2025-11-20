@@ -9,7 +9,7 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:crypto/crypto.dart';
 
 class CuReSupabaseService {
-  initialize({
+  void initialize({
     required String url,
     required String anonKey,
   }) async {
@@ -218,7 +218,7 @@ class CuReSupabaseService {
     }
   }
 
-  _getErrorMessage(dynamic error) {
+  String _getErrorMessage(dynamic error) {
     switch (error.code) {
       case 'email_address_invalid':
         return CuReLocalization.get('invalid_email_address_error');

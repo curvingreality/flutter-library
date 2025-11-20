@@ -33,12 +33,3 @@ CuReCachedNetworkImage(
 | `alignment` | `AlignmentGeometry?` | How the image should be aligned within its bounds | ❌ |
 | `placeholder` | `Widget?` | Widget to display while the image is loading | ❌ |
 | `errorWidget` | `Widget?` | Widget to display if the image fails to load | ❌ |
-
-final BoxFit? fit;
-final double? width;
-final double? height;
-final Color? color;
-final ImageRepeat? repeat;
-final AlignmentGeometry? alignment;
-final Widget? placeholder;
-final Widget? errorWidget;

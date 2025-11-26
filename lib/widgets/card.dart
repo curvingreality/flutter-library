@@ -32,76 +32,76 @@ class CuReCard extends StatelessWidget {
   final double? width;
   final double? height;
   final CuReShape? shape;
-  final BoxShadow? shadow;
+  final List<BoxShadow>? shadow;
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      splashFactory: Utils.getSplashFactory(),
-      borderRadius: Utils.getBorderRadius(shape),
-      onTap: onPressed != null ? () => onPressed!() : null,
-      child: Container(
-        decoration: BoxDecoration(
-          boxShadow: [
-            shadow ??
-                BoxShadow(
-                  color: CuReDesign.useDarkMode
-                      ? Colors.black.withValues(alpha: 0.35)
-                      : Colors.grey.withValues(alpha: 0.2),
-                  spreadRadius: 1,
-                  blurRadius: 10,
-                  offset: const Offset(0, 1),
-                ),
-          ],
-        ),
-        child: Material(
-          borderRadius: Utils.getBorderRadius(shape),
-          child: Ink(
-            width: width,
-            height: height,
-            decoration: BoxDecoration(
-              border: border,
-              color: backgroundColor ??
-                  (CuReDesign.useDarkMode
-                      ? const Color(0xff181818)
-                      : CuReDesign.whiteColor),
-              borderRadius: Utils.getBorderRadius(
-                shape,
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: Utils.getBorderRadius(shape),
+        boxShadow: shadow ??
+            [
+              BoxShadow(
+                color: CuReDesign.useDarkMode
+                    ? Colors.black.withValues(alpha: 0.35)
+                    : Colors.grey.withValues(alpha: 0.25),
+                spreadRadius: 1,
+                blurRadius: 12,
+                offset: const Offset(0, 1),
               ),
-            ),
-            padding: padding ?? const EdgeInsets.all(20),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                icon != null
-                    ? Padding(
-                        padding: EdgeInsets.only(bottom: CuReDesign.spacing),
-                        child: Icon(
-                          icon,
-                          size: 40,
-                          color: color ?? CuReDesign.primaryColor,
-                        ),
-                      )
-                    : Container(),
-                title != null
-                    ? CuReText(
-                        title!,
-                        size: 20,
-                        weight: FontWeight.w600,
-                      )
-                    : Container(),
-                description != null
-                    ? CuReText(
-                        description!,
-                        align: TextAlign.center,
-                      )
-                    : Container(),
-                child != null ? child! : Container(),
-              ],
-            ),
-          ),
-        ),
+            ],
+      ),
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+            splashFactory: Utils.getSplashFactory(),
+            borderRadius: Utils.getBorderRadius(shape),
+            onTap: onPressed != null ? () => onPressed!() : null,
+            child: Ink(
+              width: width,
+              height: height,
+              decoration: BoxDecoration(
+                border: border,
+                color: backgroundColor ??
+                    (CuReDesign.useDarkMode
+                        ? const Color(0xff181818)
+                        : CuReDesign.whiteColor),
+                borderRadius: Utils.getBorderRadius(
+                  shape,
+                ),
+              ),
+              padding: padding ?? const EdgeInsets.all(20),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  icon != null
+                      ? Padding(
+                          padding: EdgeInsets.only(bottom: CuReDesign.spacing),
+                          child: Icon(
+                            icon,
+                            size: 40,
+                            color: color ?? CuReDesign.primaryColor,
+                          ),
+                        )
+                      : Container(),
+                  title != null
+                      ? CuReText(
+                          title!,
+                          size: 20,
+                          weight: FontWeight.w600,
+                        )
+                      : Container(),
+                  description != null
+                      ? CuReText(
+                          description!,
+                          align: TextAlign.center,
+                        )
+                      : Container(),
+                  child != null ? child! : Container(),
+                ],
+              ),
+            )),
       ),
     );
   }

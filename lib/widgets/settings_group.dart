@@ -1,4 +1,5 @@
 import 'package:curving_reality_library/curving_reality_library.dart';
+import 'package:curving_reality_library/utils.dart';
 import 'package:flutter/material.dart';
 
 class CuReSettingsGroup extends StatelessWidget {
@@ -26,10 +27,10 @@ class CuReSettingsGroup extends StatelessWidget {
           ),
         Container(
           padding: const EdgeInsets.only(
-            left: 15,
-            right: 15,
-            top: 11,
-            bottom: 11,
+            left: 7,
+            right: 7,
+            top: 3,
+            bottom: 3,
           ),
           decoration: BoxDecoration(
             color: CuReDesign.useDarkMode
@@ -49,44 +50,66 @@ class CuReSettingsGroup extends StatelessWidget {
                     i,
                     Column(
                       children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Row(
-                              children: [
-                                item.icon != null
-                                    ? Container(
-                                        padding: const EdgeInsets.all(5),
-                                        decoration: BoxDecoration(
-                                          color: CuReDesign.useDarkMode ||
-                                                  item.color != null
-                                              ? _getColor(item).withAlpha(30)
-                                              : Colors.white,
-                                          borderRadius:
-                                              BorderRadius.circular(5),
-                                        ),
-                                        child: Icon(item.icon,
-                                            color: _getColor(item)),
-                                      )
-                                    : const SizedBox(),
-                                item.iconChild != null
-                                    ? item.iconChild!
-                                    : const SizedBox(),
-                                const SizedBox(width: 10),
-                                CuReText(
-                                  item.description,
-                                  color: item.color,
-                                )
-                              ],
+                        Material(
+                          borderRadius: Utils.getBorderRadius(
+                              CuReDesign.defaultElementsShape),
+                          color: Colors.transparent,
+                          child: InkWell(
+                            splashFactory: Utils.getSplashFactory(),
+                            borderRadius: Utils.getBorderRadius(
+                                CuReDesign.defaultElementsShape),
+                            onTap: item.onTap,
+                            child: Ink(
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        item.icon != null
+                                            ? Container(
+                                                padding:
+                                                    const EdgeInsets.all(5),
+                                                decoration: BoxDecoration(
+                                                  color:
+                                                      CuReDesign.useDarkMode ||
+                                                              item.color != null
+                                                          ? _getColor(item)
+                                                              .withAlpha(30)
+                                                          : Colors.white,
+                                                  borderRadius:
+                                                      BorderRadius.circular(5),
+                                                ),
+                                                child: Icon(item.icon,
+                                                    color: _getColor(item)),
+                                              )
+                                            : const SizedBox(),
+                                        item.iconChild != null
+                                            ? item.iconChild!
+                                            : const SizedBox(),
+                                        const SizedBox(width: 10),
+                                        item.description != null
+                                            ? CuReText(
+                                                item.description!,
+                                                color: item.color,
+                                              )
+                                            : const SizedBox(),
+                                      ],
+                                    ),
+                                    item.child
+                                  ],
+                                ),
+                              ),
                             ),
-                            item.child
-                          ],
+                          ),
                         ),
                         if (i < items.length - 1)
                           SizedBox(
                             width: MediaQuery.of(context).size.width * 0.9,
                             child: CuReDivider(
-                              padding: const EdgeInsets.symmetric(vertical: 10),
+                              padding: const EdgeInsets.symmetric(vertical: 2),
                               color: CuReDesign.useDarkMode
                                   ? Colors.grey.shade800
                                   : Colors.grey.shade300,

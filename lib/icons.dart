@@ -156,8 +156,12 @@ class CuReIcons {
       CuReUtils.isIos() ? CupertinoIcons.chart_pie : Icons.pie_chart;
   static IconData get heart =>
       CuReUtils.isIos() ? CupertinoIcons.heart_fill : Icons.favorite;
+  static IconData get heartOutline =>
+      CuReUtils.isIos() ? CupertinoIcons.heart : Icons.favorite_border;
   static IconData get star =>
       CuReUtils.isIos() ? CupertinoIcons.star_fill : Icons.star;
+  static IconData get starOutline =>
+      CuReUtils.isIos() ? CupertinoIcons.star : Icons.star_border;
   static IconData get leaderboard =>
       CuReUtils.isIos() ? CupertinoIcons.chart_bar : Icons.leaderboard;
   static IconData get circle =>
@@ -169,4 +173,9 @@ class CuReIcons {
       : Icons.volume_up_rounded;
   static IconData get flag =>
       CuReUtils.isIos() ? CupertinoIcons.flag_fill : Icons.flag;
+  static IconData get currencyDollar =>
+      CuReUtils.isIos() ? CupertinoIcons.money_dollar : Icons.attach_money;
+  static IconData get wallet => CuReUtils.isIos()
+      ? CupertinoIcons.creditcard_fill
+      : Icons.account_balance_wallet;
 }

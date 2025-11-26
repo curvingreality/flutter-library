@@ -13,6 +13,7 @@ class CuReExpandableBox extends StatefulWidget {
     this.icon,
     this.shape,
     this.onTap,
+    this.padding,
   });
 
   final String title;
@@ -22,6 +23,7 @@ class CuReExpandableBox extends StatefulWidget {
   final IconData? icon;
   final CuReShape? shape;
   final Function? onTap;
+  final EdgeInsets? padding;
 
   @override
   State<CuReExpandableBox> createState() => _CuReExpandableBoxState();
@@ -74,16 +76,18 @@ class _CuReExpandableBoxState extends State<CuReExpandableBox>
                   : CuReDesign.primaryColor.withValues(alpha: 0.1)
               : Colors.transparent,
           borderRadius: Utils.getBorderRadius(widget.shape),
-          boxShadow: [
-            BoxShadow(
-              color: CuReDesign.useDarkMode
-                  ? Colors.black.withValues(alpha: 0.35)
-                  : Colors.grey.withValues(alpha: 0.1),
-              spreadRadius: 1,
-              blurRadius: 10,
-              offset: const Offset(0, 1),
-            ),
-          ],
+          boxShadow: widget.color != null
+              ? [
+                  BoxShadow(
+                    color: CuReDesign.useDarkMode
+                        ? Colors.black.withValues(alpha: 0.35)
+                        : Colors.grey.withValues(alpha: 0.1),
+                    spreadRadius: 1,
+                    blurRadius: 10,
+                    offset: const Offset(0, 1),
+                  ),
+                ]
+              : null,
         ),
         child: Padding(
           padding: EdgeInsets.symmetric(
@@ -132,10 +136,11 @@ class _CuReExpandableBoxState extends State<CuReExpandableBox>
                 sizeFactor: _animation,
                 axis: Axis.vertical,
                 child: Padding(
-                  padding: EdgeInsets.only(
-                    top: CuReDesign.spacing / 2,
-                    bottom: CuReDesign.spacing / 3,
-                  ),
+                  padding: widget.padding ??
+                      EdgeInsets.only(
+                        top: CuReDesign.spacing / 2,
+                        bottom: CuReDesign.spacing / 3,
+                      ),
                   child: widget.child,
                 ),
               ),

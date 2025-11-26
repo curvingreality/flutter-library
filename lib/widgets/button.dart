@@ -22,6 +22,7 @@ class CuReButton extends StatefulWidget {
     this.padding,
     this.margin,
     this.size,
+    this.borderColor,
   });
 
   final CuReButtonType? type;
@@ -40,6 +41,7 @@ class CuReButton extends StatefulWidget {
   final EdgeInsets? padding;
   final EdgeInsets? margin;
   final CuReButtonSize? size;
+  final Color? borderColor;
 
   @override
   State<CuReButton> createState() => _CuReButtonState();
@@ -215,7 +217,8 @@ class _CuReButtonState extends State<CuReButton> {
 
   ButtonStyle _getButtonStyle() {
     return ButtonStyle(
-      shadowColor: CuReUtils.isIos()
+      shadowColor: CuReUtils.isIos() ||
+              (widget.type == null || widget.type != CuReButtonType.primary)
           ? WidgetStateProperty.all(Colors.transparent)
           : null,
       backgroundColor: widget.type == null ||
@@ -242,20 +245,23 @@ class _CuReButtonState extends State<CuReButton> {
                   ),
             ),
       splashFactory: Utils.getSplashFactory(),
-      side: widget.type == CuReButtonType.outlined
-          ? WidgetStateProperty.all(
-              BorderSide(
-                width: 1,
-                color: (widget.onPressed != null &&
-                        (widget.isLoading == null || !widget.isLoading!) &&
-                        (widget.disabled == null || !widget.disabled!))
-                    ? widget.color ?? CuReDesign.primaryColor
-                    : CuReDesign.useDarkMode
-                        ? CuReUtils.darken(CuReDesign.disabledColor, 0.5)
-                        : CuReDesign.disabledColor,
-              ),
-            )
-          : null,
+      side:
+          widget.type == CuReButtonType.outlined || (widget.borderColor != null)
+              ? WidgetStateProperty.all(
+                  BorderSide(
+                    width: 1,
+                    color: (widget.onPressed != null &&
+                            (widget.isLoading == null || !widget.isLoading!) &&
+                            (widget.disabled == null || !widget.disabled!))
+                        ? widget.borderColor ??
+                            widget.color ??
+                            CuReDesign.primaryColor
+                        : CuReDesign.useDarkMode
+                            ? CuReUtils.darken(CuReDesign.disabledColor, 0.5)
+                            : CuReDesign.disabledColor,
+                  ),
+                )
+              : null,
       shape: WidgetStateProperty.all(
         RoundedRectangleBorder(
           borderRadius: Utils.getBorderRadius(widget.shape),

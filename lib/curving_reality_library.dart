@@ -8,6 +8,7 @@ import 'package:curving_reality_library/icons.dart';
 import 'package:curving_reality_library/services/localization.dart';
 import 'package:curving_reality_library/models/dialog.dart';
 import 'package:curving_reality_library/widgets/button.dart';
+import 'package:curving_reality_library/widgets/text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -71,6 +72,8 @@ export './models/local_notification.dart';
 export './services/storage.dart';
 export './services/supabase.dart';
 export './services/localization.dart';
+export './services/sql.dart';
+export './services/notifications.dart';
 
 // Other
 export './design.dart';
@@ -307,9 +310,16 @@ class CuReUtils {
                       onPressed: () => Navigator.of(context).pop(),
                     ),
                   ),
+                if (title != '')
+                  Positioned.fill(
+                      child: Align(
+                          alignment: Alignment.topCenter,
+                          child: CuReText(title,
+                              weight: FontWeight.w600,
+                              size: 13,
+                              color: Colors.grey.shade600)))
               ],
             ),
-            title: title != '' ? Text(title) : null,
             actions: actions
                 .map((action) => CupertinoActionSheetAction(
                       child: Text(

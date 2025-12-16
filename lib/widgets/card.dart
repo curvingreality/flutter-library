@@ -11,6 +11,7 @@ class CuReCard extends StatelessWidget {
     this.description,
     this.color,
     this.onPressed,
+    this.onLongPress,
     this.backgroundColor,
     this.padding,
     this.border,
@@ -27,6 +28,7 @@ class CuReCard extends StatelessWidget {
   final Color? color;
   final Color? backgroundColor;
   final Function? onPressed;
+  final Function? onLongPress;
   final EdgeInsets? padding;
   final Border? border;
   final double? width;
@@ -57,6 +59,7 @@ class CuReCard extends StatelessWidget {
             splashFactory: Utils.getSplashFactory(),
             borderRadius: Utils.getBorderRadius(shape),
             onTap: onPressed != null ? () => onPressed!() : null,
+            onLongPress: onLongPress != null ? () => onLongPress!() : null,
             child: Ink(
               width: width,
               height: height,

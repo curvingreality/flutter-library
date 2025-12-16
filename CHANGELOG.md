@@ -1,3 +1,49 @@
+## [1.1.0] - 2025-12-16
+
+### Added
+
+- SQL Service
+- Settings Item Widget: onTap event
+- Button Widget: custom border color property
+- Expandable Card Widget: custom padding property
+- Card Widget: Long Press event
+- Toggle Buttons Widget: added child property
+- New icons: heartOutline, starOutline, currencyDollar, wallet
+
+### Changed
+
+- Card Widget: box shadows as list
+
+### Fixed
+
+- Card Widget: fixed shadows
+- Expandable Card Widget:
+- Bottom sheet: fixed iOS title
+- Expandable Card Widget: fixed shadows
+- Button Widget: disabled text color
+
+### Deprecated
+
+- N/A
+
+### Removed
+
+- Removed the cached_network_image dependency
+
+### Security
+
+- N/A
+
+### Code
+
+- Methods return types
+
+### Other
+
+- N/A
+
+---
+
 ## [1.0.5] - 2025-11-20
 
 ### Added

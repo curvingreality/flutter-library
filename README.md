@@ -46,6 +46,7 @@ Some **components**, **screens** and **services** have external packages depende
 | `CuReLoginScreen, CuReRegistrationScreen`                                                 | [font_awesome_flutter](https://pub.dev/packages/font_awesome_flutter)                                                                                                                       |
 | `CuRePaywallScreen`                                                                       | [intl](https://pub.dev/packages/intl)                                                                                                                                                       |
 | `CuReSupabaseService`                                                                     | [supabase_flutter](https://pub.dev/packages/supabase_flutter), [google_sign_in](https://pub.dev/packages/google_sign_in), [sign_in_with_apple](https://pub.dev/packages/sign_in_with_apple) |
+| `CuReSqlService`                                                                          | [sqflite](https://pub.dev/packages/sqflite), [path](https://pub.dev/packages/path)                                                                                                          |
 
 <hr>
 
@@ -76,15 +77,6 @@ We’re just getting started – here’s what’s coming next for **Curving Rea
 ⸻
 
 🚀 Our mission is to keep evolving and making app development with Flutter faster, simpler, and more fun – while never compromising on design quality.
-
-## What are we working on
-
-- ✅ New button type
-- ✅ Custom checkboxes
-- ✅ Custom radio buttons
-- ✅ "Insert code" type field
-- [ ] Custom dialogs and bottom sheets
-- [ ] Improved text fields UI
 
 <hr>
 

@@ -16,6 +16,7 @@
   - [Localization](services/localization.md)
   - [Notifications](services/notifications.md)
   - [Storage](services/storage.md)
+  - [Local database](services/local-database.md)
   - [Supabase](services/supabase.md)
 
 - Widgets

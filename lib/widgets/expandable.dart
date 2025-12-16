@@ -48,7 +48,7 @@ class _CuReExpandableBoxState extends State<CuReExpandableBox>
     super.initState();
   }
 
-  _toggleContainer() {
+  void _toggleContainer() {
     if (!_isOpen) {
       _controller.forward();
     } else {

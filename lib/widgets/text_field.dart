@@ -759,7 +759,7 @@ class _CuReTextFieldState extends State<CuReTextField> {
     return widget.type != null && widget.type! == CuReTextFieldType.password;
   }
 
-  String _getErrorText(errorText) {
+  String _getErrorText(String errorText) {
     return errorText;
   }
 

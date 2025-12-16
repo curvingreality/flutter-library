@@ -105,17 +105,23 @@ class _CuReToggleButtonsState extends State<CuReToggleButtons> {
                         horizontal: _size * 0.8,
                         vertical: _size * 0.5,
                       ),
-                      child: option.icon != null
-                          ? Icon(
+                      child: Row(
+                        children: [
+                          if (option.icon != null)
+                            Icon(
                               option.icon,
                               color: _getColor(i),
                               size: _size * 1.5,
-                            )
-                          : CuReText(
+                            ),
+                          if (option.label != null)
+                            CuReText(
                               option.label!,
                               color: _getColor(i),
                               size: _size,
                             ),
+                          option.child != null ? option.child! : Container(),
+                        ],
+                      ),
                     ),
                   ),
                 ),

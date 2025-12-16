@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 class CuReToggleButtonsItem {
   final String? label;
   final IconData? icon;
+  final Widget? child;
   final bool? isSelected;
   final Color? color;
   final bool? isDisabled;
@@ -15,5 +16,6 @@ class CuReToggleButtonsItem {
     this.color,
     this.isDisabled,
     this.value,
+    this.child,
   });
 }

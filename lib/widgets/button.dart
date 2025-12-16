@@ -312,6 +312,11 @@ class _CuReButtonState extends State<CuReButton> {
   }
 
   Color? _getTextColor() {
+    if (widget.disabled != null && widget.disabled! ||
+        (widget.isLoading != null && widget.isLoading!) ||
+        widget.onPressed == null) {
+      return CuReUtils.darken(CuReDesign.disabledColor, 0.3);
+    }
     if (((widget.type == CuReButtonType.text ||
                 widget.type == CuReButtonType.outlined) &&
             widget.onPressed == null) ||
@@ -350,7 +355,7 @@ class _CuReButtonState extends State<CuReButton> {
         return const EdgeInsets.symmetric(horizontal: 14, vertical: 10);
       case CuReButtonSize.medium:
       default:
-        return const EdgeInsets.symmetric(horizontal: 16, vertical: 13);
+        return const EdgeInsets.symmetric(horizontal: 16, vertical: 11);
     }
   }
 }

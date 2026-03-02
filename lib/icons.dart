@@ -198,6 +198,6 @@ class CuReIcons {
   static IconData get thumbsUpOutlined => CuReUtils.isIos()
       ? CupertinoIcons.hand_thumbsup
       : Icons.thumb_up_outlined;
-  static IconData get thumbsUpFilled =>
+  static IconData get thumbsUp =>
       CuReUtils.isIos() ? CupertinoIcons.hand_thumbsup_fill : Icons.thumb_up;
 }

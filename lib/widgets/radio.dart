@@ -31,43 +31,45 @@ class CuReRadio extends StatefulWidget {
 class _CuReRadioState extends State<CuReRadio> {
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        InkWell(
-          borderRadius: BorderRadius.circular(50),
-          splashFactory: Utils.getSplashFactory(),
-          onTap: _onTap,
-          child: AnimatedContainer(
-            duration: const Duration(milliseconds: 100),
-            width: widget.size ?? 20,
-            height: widget.size ?? 20,
-            decoration: BoxDecoration(
-              color: _getBackgroundColor(),
-              border: Border.all(
-                color: _getBorderColor(),
-                width: 1.0,
-              ),
+    return Material(
+        color: Colors.transparent,
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            InkWell(
               borderRadius: BorderRadius.circular(50),
+              splashFactory: Utils.getSplashFactory(),
+              onTap: _onTap,
+              child: AnimatedContainer(
+                duration: const Duration(milliseconds: 100),
+                width: widget.size ?? 20,
+                height: widget.size ?? 20,
+                decoration: BoxDecoration(
+                  color: _getBackgroundColor(),
+                  border: Border.all(
+                    color: _getBorderColor(),
+                    width: 1.0,
+                  ),
+                  borderRadius: BorderRadius.circular(50),
+                ),
+                child: widget.value == widget.groupValue
+                    ? Icon(_getIcon(),
+                        color: CuReDesign.whiteColor, size: _getIconSize())
+                    : null,
+              ),
             ),
-            child: widget.value == widget.groupValue
-                ? Icon(_getIcon(),
-                    color: CuReDesign.whiteColor, size: _getIconSize())
-                : null,
-          ),
-        ),
-        if (widget.label != null)
-          Padding(
-            padding: const EdgeInsets.only(left: 8),
-            child: CuReText(
-              widget.label!,
-              color: _getTextColor(),
-            ),
-          )
-      ],
-    );
+            if (widget.label != null)
+              Padding(
+                padding: const EdgeInsets.only(left: 8),
+                child: CuReText(
+                  widget.label!,
+                  color: _getTextColor(),
+                ),
+              )
+          ],
+        ));
   }
 
   void _onTap() {

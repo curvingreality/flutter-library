@@ -16,13 +16,17 @@ class CuReAppBar extends StatelessWidget
   @override
   Widget build(BuildContext context) {
     if (CuReUtils.isIos()) {
-      return CupertinoNavigationBar(
-        backgroundColor: CuReDesign.useDarkMode
-            ? CuReDesign.blackColor
-            : CuReDesign.whiteColor,
-        middle: _getTitle(),
-        trailing: actions,
-      );
+      return CupertinoTheme(
+          data: CupertinoThemeData(
+            primaryColor: CuReDesign.primaryColor,
+          ),
+          child: CupertinoNavigationBar(
+            backgroundColor: CuReDesign.useDarkMode
+                ? CuReDesign.blackColor
+                : CuReDesign.whiteColor,
+            middle: _getTitle(),
+            trailing: actions,
+          ));
     } else {
       return AppBar(
         backgroundColor: CuReDesign.useDarkMode

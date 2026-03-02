@@ -75,6 +75,9 @@ class CuReIcons {
   static IconData get warning => CuReUtils.isIos()
       ? CupertinoIcons.exclamationmark_triangle_fill
       : Icons.warning;
+  static IconData get warningOutline => CuReUtils.isIos()
+      ? CupertinoIcons.exclamationmark_triangle
+      : Icons.warning_amber_outlined;
   static IconData get download => CuReUtils.isIos()
       ? CupertinoIcons.cloud_download_fill
       : Icons.cloud_download;
@@ -146,6 +149,8 @@ class CuReIcons {
       CuReUtils.isIos() ? CupertinoIcons.music_note : Icons.music_note;
   static IconData get arrowDown =>
       CuReUtils.isIos() ? CupertinoIcons.arrow_down : Icons.arrow_downward;
+  static IconData get arrowUp =>
+      CuReUtils.isIos() ? CupertinoIcons.arrow_up : Icons.arrow_upward;
   static IconData get chartBar =>
       CuReUtils.isIos() ? CupertinoIcons.chart_bar : Icons.bar_chart;
   static IconData get volumeOff =>
@@ -178,4 +183,21 @@ class CuReIcons {
   static IconData get wallet => CuReUtils.isIos()
       ? CupertinoIcons.creditcard_fill
       : Icons.account_balance_wallet;
+  static IconData get bookmark =>
+      CuReUtils.isIos() ? CupertinoIcons.bookmark_fill : Icons.bookmark;
+  static IconData get bookmarkOutline =>
+      CuReUtils.isIos() ? CupertinoIcons.bookmark : Icons.bookmark_border;
+  static IconData get edit =>
+      CuReUtils.isIos() ? CupertinoIcons.pencil : Icons.edit;
+  static IconData get send =>
+      CuReUtils.isIos() ? CupertinoIcons.paperplane_fill : Icons.send;
+  static IconData get language =>
+      CuReUtils.isIos() ? CupertinoIcons.globe : Icons.language;
+  static IconData get alert =>
+      CuReUtils.isIos() ? CupertinoIcons.bell_fill : Icons.notifications_active;
+  static IconData get thumbsUp => CuReUtils.isIos()
+      ? CupertinoIcons.hand_thumbsup
+      : Icons.thumb_up_outlined;
+  static IconData get thumbsUpFilled =>
+      CuReUtils.isIos() ? CupertinoIcons.hand_thumbsup_fill : Icons.thumb_up;
 }

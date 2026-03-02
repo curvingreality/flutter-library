@@ -101,6 +101,9 @@ class _CuReAvatarState extends State<CuReAvatar> {
   double _getNotificationsFontSize() {
     double defautlSize;
     switch (widget.size) {
+      case CuReAvatarSize.extraSmall:
+        defautlSize = 7;
+        break;
       case CuReAvatarSize.small:
         defautlSize = 9;
         break;
@@ -124,6 +127,9 @@ class _CuReAvatarState extends State<CuReAvatar> {
   double _getNotificationsSize() {
     double defautlSize;
     switch (widget.size) {
+      case CuReAvatarSize.extraSmall:
+        defautlSize = 11;
+        break;
       case CuReAvatarSize.small:
         defautlSize = 14;
         break;
@@ -144,6 +150,9 @@ class _CuReAvatarState extends State<CuReAvatar> {
   double _getOnlineStatusSize() {
     double defautlSize;
     switch (widget.size) {
+      case CuReAvatarSize.extraSmall:
+        defautlSize = 11;
+        break;
       case CuReAvatarSize.small:
         defautlSize = 11;
         break;
@@ -167,6 +176,9 @@ class _CuReAvatarState extends State<CuReAvatar> {
       return widget.widthHeight!;
     }
     switch (widget.size) {
+      case CuReAvatarSize.extraSmall:
+        defautlSize = 25;
+        break;
       case CuReAvatarSize.small:
         defautlSize = 35;
         break;

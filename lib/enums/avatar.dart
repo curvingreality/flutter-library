@@ -1,1 +1,1 @@
-enum CuReAvatarSize { small, medium, large, biggest }
+enum CuReAvatarSize { extraSmall, small, medium, large, biggest }

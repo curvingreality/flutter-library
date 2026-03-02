@@ -103,15 +103,14 @@ class _CuReWelcomeScreenState extends State<CuReWelcomeScreen> {
                           duration: CuReDesign.animationDurations[
                               CuReAnimationDuration.medium]!,
                           child: SizedBox(
-                            height: 70,
+                            height: 50,
                             child: widget.logo!,
                           ),
                         )
                       : null,
                 ),
                 SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.69 -
-                      (widget.logo != null ? 32 : 0),
+                  height: MediaQuery.of(context).size.height * 0.69,
                   child: Stack(
                     children: [
                       PageView(
@@ -187,7 +186,7 @@ class _CuReWelcomeScreenState extends State<CuReWelcomeScreen> {
                                     child: CuReText(
                                       widget.sections[index].description,
                                       overflow: TextOverflow.ellipsis,
-                                      maxLines: 4,
+                                      maxLines: 3,
                                     ),
                                   ),
                                 ),

@@ -104,7 +104,7 @@ CuReUtils.openDialog(context, 'Title', content: CuReText('This is the dialog con
 
 // Dialog with actions
 CuReUtils.openDialog(context, 'Title', content: CuReText('This is the dialog content'), actions: [
-    CuReDialogAction(label: 'Action 1', color: Colors.blue, onPressed: () {
+    CuReDialogAction(label: 'Action 1', color: Colors.blue, icon: CuReIcons.thumbsUp, onPressed: () {
         // Something to do
     }),
     CuReDialogAction(label: 'Action 2', color: Colors.red, onPressed: () {
@@ -170,7 +170,7 @@ List<String> months = CuReUtils.getMonthsNames();
 List<String> weekDays = CuReUtils.getWeekDaysNames();
 ```
 
-!> Available languages: **english, italian**
+!> Available languages: **english, italian, spanish**
 
 ## HTML parsing
 

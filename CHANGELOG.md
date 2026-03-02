@@ -1,3 +1,51 @@
+## [1.1.1] - 2026-03-02
+
+### Added
+
+- Spanish localization
+- New icons: warningOutlined, bookmark, bookmarkOutline, edit, send, language, alert, thumbsUp, thumbsUpOutlined
+- Avatar Widget: new extraSmall size
+- Dialog action new icon parameter
+- Survery Screen: hideProgressBar option, selected option
+- Notifications custom keys
+- TextField Widget: added textColor option, focusNode option
+
+### Changed
+
+- N/A
+
+### Fixed
+
+- Localization fallback
+- Dialog / Bottom sheet style
+- Survey Screen sizes
+- Welcome Screen text sizes
+- Forgot password check
+- Radio Widget style
+- Stepper Widget style
+
+### Deprecated
+
+- N/A
+
+### Removed
+
+- N/A
+
+### Security
+
+- N/A
+
+### Code
+
+- N/A
+
+### Other
+
+- N/A
+
+---
+
 ## [1.1.0] - 2025-12-16
 
 ### Added

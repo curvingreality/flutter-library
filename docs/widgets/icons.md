@@ -56,6 +56,7 @@ CuReIcons.clock
 CuReIcons.clockOutlined
 CuReIcons.celebration
 CuReIcons.warning
+CuReIcons.warningOutlined
 CuReIcons.download
 CuReIcons.review
 CuReIcons.militaryTech
@@ -79,7 +80,7 @@ CuReIcons.chevronUp
 CuReIcons.location
 CuReIcons.place
 CuReIcons.question
-CuReIcons.questionOutline
+CuReIcons.questionOutlined
 CuReIcons.list
 CuReIcons.dragHandle
 CuReIcons.target
@@ -97,4 +98,12 @@ CuReIcons.chartPie
 CuReIcons.heart
 CuReIcons.star
 CuReIcons.leaderboard
+CuReIcons.bookmark,
+CuReIcons.bookmarkOutlined,
+CuReIcons.edit,
+CuReIcons.send,
+CuReIcons.language,
+CuReIcons.alert,
+CuReIcons.thumbsUp,
+CuReIcons.thumbsUpOutlined
 ```

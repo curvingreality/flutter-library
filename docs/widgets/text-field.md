@@ -156,6 +156,7 @@ final List<CuReDropdownItem>? options;
 | `borderRadius` | `double`                 | Custom text field border radius                                                                                       | ❌        |
 | `shape`        | `CuReShape`              | Shape of the text field. Regular, rounded, squared. Default is the **CuReDesign.defaultElementsShape** (regular)      | ❌        |
 | `color`        | `Color`                  | Custom text field background color                                                                                    | ❌        |
+| `textColor`    | `Color`                  | Custom text field text color                                                                                          | ❌        |
 | `showCounter`  | `bool`                   | If set to true it shows a counter on the bottom right of the text field with the current text field characters length | ❌        |
 | `multiline`    | `bool`                   | If set to true the user can insert multiple lines                                                                     | ❌        |
 | `maxLines`     | `int`                    | The maximum lines the user can insert                                                                                 | ❌        |
@@ -167,3 +168,4 @@ final List<CuReDropdownItem>? options;
 | `onValidation` | `Function(bool)`         | Emits an event after the validator finished checking the field. Returns false if the field is not valid               | ❌        |
 | `onChanged`    | `Function(String)`       | Emits an event when the user changes the value of the field. Returns the current value                                | ❌        |
 | `onSubmitted`  | `Function(String)`       | Emits an event when the user presses submits on the field. Returns the current value                                  | ❌        |
+| `focusNode`    | `FocusNode`              | Adds a custom focusNode                                                                                               | ❌        |

@@ -19,7 +19,7 @@ CuReAvatar(
 | `url` | `String` | If set it shows the network image from the URL | ❌ |
 | `path` | `String` | If set it shows the local image of the path | ❌ |
 | `shape` | `CuReShape` | Regular, rounded, squared. Default is rounded | ❌ |
-| `size` | `CuReAvatarSize` | Small, medium, large, biggest. Default is medium | ❌ |
+| `size` | `CuReAvatarSize` | extraSmall, small, medium, large, biggest. Default is medium | ❌ |
 | `color` | `Color` | The image color | ❌ |
 | `border` | `Border` | Defines the border to show around the avatar | ❌ |
 | `child` | `Widget` | Use this property to add a custom widget in the Avatar space with a Positioned | ❌ |

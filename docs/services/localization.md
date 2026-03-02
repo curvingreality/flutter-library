@@ -4,7 +4,8 @@
 
 ## Set language
 
-This method is used to set the preferred language.
+This method is used to set the preferred language. <br/>
+Available languages: **english (en)**, **italian (it)**, **spanish (es)**
 
 ```dart
 CuReLocalization.setLanguage('en');

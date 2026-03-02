@@ -39,6 +39,7 @@ CuReSurveyScreen(
                 CuReSurveyAnswer(
                     text: '🥱 Less than 6 hours',
                     id: 2,
+                    selected: true,
                 ),
                 CuReSurveyAnswer(text: '😌 6-7 hours', id: 3),
                 CuReSurveyAnswer(text: '😴 7+ hours', id: 4),
@@ -67,9 +68,10 @@ CuReSurveyScreen(
 
 ## Properties
 
-| Property    | Type                                         | Description                                                                                                                      | Mandatory |
-| ----------- | -------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | --------- |
-| `questions` | `List<CuReSurveyQuestion>`                   | The list of questions                                                                                                            | ✅        |
-| `onSkip`    | `Function(void)`                             | Emits an event when the user taps on the Skip button                                                                             | ❌        |
-| `onFinish`  | `Function(Map<int, List<CuReSurveyAnswer>>)` | Emits an event when the user taps on the Finish button. It returns a map with the question id and theh list of the given answers | ❌        |
-| `logo`      | `Widget`                                     | Custom widget shown as logo at the top right of the screen                                                                       | ❌        |
+| Property          | Type                                         | Description                                                                                                                      | Mandatory |
+| ----------------- | -------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | --------- |
+| `questions`       | `List<CuReSurveyQuestion>`                   | The list of questions                                                                                                            | ✅        |
+| `onSkip`          | `Function(void)`                             | Emits an event when the user taps on the Skip button                                                                             | ❌        |
+| `onFinish`        | `Function(Map<int, List<CuReSurveyAnswer>>)` | Emits an event when the user taps on the Finish button. It returns a map with the question id and theh list of the given answers | ❌        |
+| `logo`            | `Widget`                                     | Custom widget shown as logo at the top right of the screen                                                                       | ❌        |
+| `hideProgressBar` | `bool`                                       | Hides the progress bar on top if set to true                                                                                     | ❌        |

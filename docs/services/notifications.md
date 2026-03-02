@@ -42,14 +42,15 @@ The **notifications service** has an internal queue, so if there are multiple no
 
 You can customize the notification with the params of the **LocalNotification** class.
 
-| Property      | Type                    | Description                                                                                                                                                   | Nullable |
-| ------------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| `id`          | `int`                   | Integer used for logic operations if you need to know which notification has been pressed                                                                     | ✅       |
-| `color`       | `Color`                 | Changes the background of the notification. Default is the **info** color                                                                                     | ✅       |
-| `icon`        | `IconData`              | Shows an icon at the left of the notification. Default is the **info** icon                                                                                   | ✅       |
-| `title`       | `String`                | Notification title                                                                                                                                            | ✅       |
-| `description` | `String`                | Notification description                                                                                                                                      | ✅       |
-| `child`       | `Widget`                | Custom widget that you can use to customize the notification as you want                                                                                      | ✅       |
-| `duration`    | `Duration`              | Specifies for how long the notification needs to be shown                                                                                                     | ✅       |
-| `onTap`       | `Function(void)`        | Emits an event when the notification has been tapped                                                                                                          | ✅       |
-| `type`        | `LocalNotificationType` | Enum used to speed up the development. If used it will be applied an icon and a color based on the type. Available types: **info, succcess, warning, danger** | ✅       |
+| Property      | Type                           | Description                                                                                                                                                   | Nullable |
+| ------------- | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| `id`          | `int`                          | Integer used for logic operations if you need to know which notification has been pressed                                                                     | ✅       |
+| `color`       | `Color`                        | Changes the background of the notification. Default is the **info** color                                                                                     | ✅       |
+| `icon`        | `IconData`                     | Shows an icon at the left of the notification. Default is the **info** icon                                                                                   | ✅       |
+| `title`       | `String`                       | Notification title                                                                                                                                            | ✅       |
+| `description` | `String`                       | Notification description                                                                                                                                      | ✅       |
+| `child`       | `Widget`                       | Custom widget that you can use to customize the notification as you want                                                                                      | ✅       |
+| `duration`    | `Duration`                     | Specifies for how long the notification needs to be shown                                                                                                     | ✅       |
+| `onTap`       | `Function(void)`               | Emits an event when the notification has been tapped                                                                                                          | ✅       |
+| `type`        | `LocalNotificationType`        | Enum used to speed up the development. If used it will be applied an icon and a color based on the type. Available types: **info, succcess, warning, danger** | ✅       |
+| `scaffoldKey` | `GlobalKey<CuReScaffoldState>` | Set a custom scaffold key                                                                                                                                     | ❌       |

@@ -3,12 +3,19 @@ import 'package:flutter/material.dart';
 
 class Utils {
   static BorderRadius getBorderRadius(CuReShape? shape) {
-    if (shape == CuReShape.squared ||
-        CuReDesign.defaultElementsShape == CuReShape.squared) {
+    if (shape == CuReShape.squared) {
       return BorderRadius.circular(0);
     }
-    if (shape == CuReShape.rounded ||
-        CuReDesign.defaultElementsShape == CuReShape.rounded) {
+    if (shape == CuReShape.rounded) {
+      return BorderRadius.circular(100);
+    }
+    if (shape == CuReShape.regular) {
+      return BorderRadius.circular(8);
+    }
+    if (CuReDesign.defaultElementsShape == CuReShape.squared) {
+      return BorderRadius.circular(0);
+    }
+    if (CuReDesign.defaultElementsShape == CuReShape.rounded) {
       return BorderRadius.circular(100);
     }
     return BorderRadius.circular(CuReDesign.borderRadius);

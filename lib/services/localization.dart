@@ -144,7 +144,7 @@ class Localization {
       'last_name': 'Cognome',
       'last_name_placeholder': 'Rossi',
       'already_have_account': 'Hai già un account?',
-      'by_signing_up': 'Registrandoti accetti i nostri',
+      'by_signing_up': 'Registrandoti accetti la nostra ',
       'terms_of_service': 'Termini di Servizio (EULA)',
       'and_our': 'e i nostri',
       'privacy_policy': 'Politica sulla Privacy',
@@ -195,7 +195,107 @@ class Localization {
       'email_resent':
           'Abbiamo inviato un\'altra email di verifica. Controlla la tua casella di posta e la cartella spam.',
       'survey_max_choices_reached': 'Hai raggiunto il numero massimo di scelte.'
+    },
+    /*
+    'es': {
+      'skip': 'Saltar',
+      'next': 'Siguiente',
+      'finish': 'Finalizar',
+      'back': 'Atrás',
+      'field_number_error': 'Este campo debe ser un número',
+      'field_email_error':
+          'Por favor, introduce una dirección de correo electrónico válida',
+      'field_required_error': 'Este campo es obligatorio',
+      'characters': 'caracteres',
+      'field_min_chars_error': 'Este campo debe tener al menos',
+      'field_min_error': 'El número debe ser mayor que',
+      'field_max_chars_error': 'Este campo no debe tener más de',
+      'field_max_error': 'El número debe ser menor que',
+      'password_not_safe_error':
+          'La contraseña debe contener al menos 8 caracteres, 1 letra mayúscula, 1 letra minúscula, 1 número y 1 carácter especial',
+      'years_old': 'años',
+      'age_min_error': 'Debes tener al menos',
+      'age_max_error': 'Debes tener como máximo',
+      'invalid_format_erorr': 'Formato inválido',
+      'email_address': 'Dirección de correo electrónico',
+      'email_address_placeholder': 'john.doe@company.com',
+      'password': 'Contraseña',
+      'password_placeholder': 'y0ur_S&cure_P@ssw0rd',
+      'sign_in': 'Iniciar sesión',
+      'sign_up': 'Registrarse',
+      'or': 'o',
+      'forgot_password': 'Olvidé mi contraseña',
+      'continue_with_google': 'Continuar con Google',
+      'continue_with_apple': 'Continuar con Apple',
+      'continue_with_facebook': 'Continuar con Facebook',
+      'continue_with_linkedin': 'Continuar con LinkedIn',
+      'dont_have_account': '¿No tienes una cuenta?',
+      'typing': 'Escribiendo...',
+      'write_a_message': 'Escribe un mensaje...',
+      'select_a_picture': 'Seleccionar una imagen',
+      'camera': 'Cámara',
+      'gallery': 'Galería',
+      'field_no_spaces_error': 'Este campo no debe contener espacios',
+      'create_an_account': 'Crear una cuenta',
+      'create_an_account_description': 'Crea tu cuenta para comenzar',
+      'first_name': 'Nombre',
+      'first_name_placeholder': 'John',
+      'last_name': 'Apellido',
+      'last_name_placeholder': 'Doe',
+      'already_have_account': '¿Ya tienes una cuenta?',
+      'by_signing_up': 'Al registrarte aceptas nuestros ',
+      'terms_of_service': 'Términos de servicio',
+      'and_our': ' y nuestra ',
+      'privacy_policy': 'Política de privacidad',
+      'invalid_email_address_error': 'Dirección de correo electrónico inválida',
+      'email_not_confirmed_error':
+          'Te enviamos un correo electrónico para verificar tu cuenta. Por favor, revisa tu bandeja de entrada.',
+      'check_your_email_spam': 'Revisa también la carpeta de spam.',
+      'resend_confirmation_email': 'Reenviar correo de confirmación',
+      'invalid_login_credentials_error':
+          'Correo electrónico o contraseña incorrectos. Inténtalo de nuevo.',
+      'forgot_password_title': 'Contraseña olvidada',
+      'forgot_password_email':
+          'Introduce tu dirección de correo electrónico para recibir un correo para restablecer tu contraseña',
+      'forgot_password_submit': 'Enviar correo para restablecer la contraseña',
+      'email_placeholder': 'Introduce tu dirección de correo electrónico',
+      'select_an_option': 'Selecciona una opción',
+      'cancel': 'Cancelar',
+      'buy_now': 'Comprar ahora',
+      'by_clicking_buy':
+          'Al hacer clic en el botón de compra aceptas nuestros ',
+      'start_free_trial': 'Iniciar prueba gratuita',
+      'january': 'Enero',
+      'february': 'Febrero',
+      'march': 'Marzo',
+      'april': 'Abril',
+      'may': 'Mayo',
+      'june': 'Junio',
+      'july': 'Julio',
+      'august': 'Agosto',
+      'september': 'Septiembre',
+      'october': 'Octubre',
+      'november': 'Noviembre',
+      'december': 'Diciembre',
+      'monday': 'Lunes',
+      'tuesday': 'Martes',
+      'wednesday': 'Miércoles',
+      'thursday': 'Jueves',
+      'friday': 'Viernes',
+      'saturday': 'Sábado',
+      'sunday': 'Domingo',
+      'close': 'Cerrar',
+      'empty_state_title': 'No se encontraron elementos',
+      'empty_state_description':
+          'Intenta ajustar tu búsqueda o filtro para encontrar lo que necesitas.',
+      'verify_email_title': 'Verificar correo electrónico',
+      'go_to_sign_in': 'Ir a iniciar sesión',
+      'resend_email': 'Reenviar correo de verificación',
+      'email_resent':
+          'Hemos enviado otro correo de verificación. Por favor, revisa tu bandeja de entrada y la carpeta de spam.',
+      'survey_max_choices_reached': 'Has alcanzado el número máximo de opciones'
     }
+    */
   };
 
   static void setValues(Map<String, Map<String, dynamic>> values) {
@@ -214,6 +314,10 @@ class Localization {
     if (key.contains('.')) {
       final parts = key.split('.');
       dynamic localizedValue = _localizedValues[language];
+      if (localizedValue == null) {
+        Localization.locale = 'en';
+        return getValue(key);
+      }
       for (var part in parts) {
         if (localizedValue is Map<String, dynamic>) {
           localizedValue = localizedValue[part];
@@ -247,6 +351,14 @@ class CuReLocalization {
 
   static void setValues(Map<String, Map<String, dynamic>> values) {
     Localization.setValues(values);
+  }
+
+  static String getSystemLanguage({String fallbackLanguage = 'en'}) {
+    try {
+      return Platform.localeName.split('_')[0];
+    } catch (e) {
+      return fallbackLanguage;
+    }
   }
 
   static void useSystemLanguage({String fallbackLanguage = 'en'}) {

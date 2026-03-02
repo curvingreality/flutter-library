@@ -168,7 +168,9 @@ class _CuReWelcomeScreenState extends State<CuReWelcomeScreen> {
                                       widget.sections[index].title,
                                       align: TextAlign.start,
                                       maxLines: 2,
-                                      size: 36,
+                                      size:
+                                          CuReUtils.dynamicWidth(context, 17) *
+                                              0.4,
                                       lineHeight: 1.2,
                                     ),
                                   ),

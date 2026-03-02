@@ -75,7 +75,7 @@ class CuReIcons {
   static IconData get warning => CuReUtils.isIos()
       ? CupertinoIcons.exclamationmark_triangle_fill
       : Icons.warning;
-  static IconData get warningOutline => CuReUtils.isIos()
+  static IconData get warningOutlined => CuReUtils.isIos()
       ? CupertinoIcons.exclamationmark_triangle
       : Icons.warning_amber_outlined;
   static IconData get download => CuReUtils.isIos()
@@ -126,7 +126,7 @@ class CuReIcons {
   static IconData get place => Icons.place;
   static IconData get question =>
       CuReUtils.isIos() ? CupertinoIcons.question : Icons.help;
-  static IconData questionOutline = CuReUtils.isIos()
+  static IconData get questionOutlined => CuReUtils.isIos()
       ? CupertinoIcons.question_circle
       : Icons.help_outline_rounded;
   static IconData get list =>
@@ -195,7 +195,7 @@ class CuReIcons {
       CuReUtils.isIos() ? CupertinoIcons.globe : Icons.language;
   static IconData get alert =>
       CuReUtils.isIos() ? CupertinoIcons.bell_fill : Icons.notifications_active;
-  static IconData get thumbsUp => CuReUtils.isIos()
+  static IconData get thumbsUpOutlined => CuReUtils.isIos()
       ? CupertinoIcons.hand_thumbsup
       : Icons.thumb_up_outlined;
   static IconData get thumbsUpFilled =>

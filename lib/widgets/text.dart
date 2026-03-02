@@ -17,6 +17,7 @@ class CuReText extends StatelessWidget {
     this.padding,
     this.letterSpacing,
     this.fontFamily,
+    this.fontStyle,
   });
 
   final String text;
@@ -32,6 +33,7 @@ class CuReText extends StatelessWidget {
   final EdgeInsets? padding;
   final double? letterSpacing;
   final String? fontFamily;
+  final FontStyle? fontStyle;
 
   @override
   Widget build(BuildContext context) {
@@ -51,6 +53,7 @@ class CuReText extends StatelessWidget {
           shadows: shadows,
           letterSpacing: letterSpacing,
           fontFamily: fontFamily,
+          fontStyle: fontStyle,
         ),
       ),
     );

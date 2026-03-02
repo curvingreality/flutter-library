@@ -12,6 +12,7 @@ class CuReBadge extends StatelessWidget {
     this.shape,
     this.fontSize,
     this.child,
+    this.useTransparency,
   });
 
   final String? label;
@@ -21,15 +22,13 @@ class CuReBadge extends StatelessWidget {
   final CuReShape? shape;
   final double? fontSize;
   final Widget? child;
+  final bool? useTransparency;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          color: color != null
-              ? CuReUtils.lighten(color!, 0.31)
-              : CuReUtils.lighten(CuReDesign.primaryColor, 0.31),
-          borderRadius: _getShape()),
+          color: _getBackgroundColor(), borderRadius: _getShape()),
       child: Padding(
         padding: padding ??
             EdgeInsets.symmetric(
@@ -64,6 +63,19 @@ class CuReBadge extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Color _getBackgroundColor() {
+    if (color != null) {
+      if (useTransparency != null && useTransparency!) {
+        return color!.withOpacity(0.15);
+      }
+      return CuReUtils.lighten(color!, 0.31);
+    }
+    if (useTransparency != null && useTransparency!) {
+      return CuReDesign.primaryColor.withOpacity(0.15);
+    }
+    return CuReUtils.lighten(CuReDesign.primaryColor, 0.31);
   }
 
   double _getVerticalPadding() {

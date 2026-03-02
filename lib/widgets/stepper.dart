@@ -215,7 +215,11 @@ class _CuReStepperState extends State<CuReStepper> {
       }
     }
     if (widget.currentStep == (index + 1)) {
-      return CuReDesign.primaryColor;
+      if (widget.color == null) {
+        return CuReDesign.primaryColor;
+      } else {
+        return widget.color!;
+      }
     }
     if (CuReDesign.useDarkMode) {
       return Colors.grey.shade900;

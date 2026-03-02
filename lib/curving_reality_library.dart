@@ -199,13 +199,29 @@ class CuReUtils {
                   ? [
                       for (var action in actions)
                         CupertinoDialogAction(
-                          child: Text(
-                            action.label,
-                            style: TextStyle(
-                              fontSize: 14,
-                              color: action.color ?? CuReDesign.primaryColor,
-                            ),
-                          ),
+                          child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                if (action.icon != null) ...[
+                                  Icon(
+                                    action.icon!,
+                                    size: 17,
+                                    color:
+                                        action.color ?? CuReDesign.primaryColor,
+                                  ),
+                                  const SizedBox(width: 8),
+                                ],
+                                Text(
+                                  action.label,
+                                  style: TextStyle(
+                                    fontSize: 14,
+                                    color:
+                                        action.color ?? CuReDesign.primaryColor,
+                                  ),
+                                ),
+                              ]),
                           onPressed: () {
                             Navigator.pop(context);
                             if (action.onPressed != null) action.onPressed!();
@@ -243,12 +259,28 @@ class CuReUtils {
                           Navigator.pop(context);
                           if (action.onPressed != null) action.onPressed!();
                         },
-                        child: Text(
-                          action.label,
-                          style: TextStyle(
-                            color: action.color ?? CuReDesign.primaryColor,
-                          ),
-                        ),
+                        child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              if (action.icon != null) ...[
+                                Icon(
+                                  action.icon!,
+                                  color:
+                                      action.color ?? CuReDesign.primaryColor,
+                                  size: 17,
+                                ),
+                                const SizedBox(width: 8),
+                              ],
+                              Text(
+                                action.label,
+                                style: TextStyle(
+                                  color:
+                                      action.color ?? CuReDesign.primaryColor,
+                                ),
+                              ),
+                            ]),
                       ),
                   ]
                 : [
@@ -277,120 +309,214 @@ class CuReUtils {
     String title = '',
     List<CuReDialogAction> actions = const [],
     bool? hideCloseButton = false,
-    bool useIsolatedNavigator = false, // 👈 flag per Navigator separato
+    bool useIsolatedNavigator = false,
   }) {
-    assert(contentBuilder != null || content != null,
-        'You must provide either contentBuilder or content.');
+    assert(
+      contentBuilder != null || content != null,
+      'You must provide either contentBuilder or content.',
+    );
 
-    final Widget builtContent = contentBuilder != null
-        ? contentBuilder(context)
-        : (content ?? const SizedBox());
+    // ⚠️ Importante: costruisci il contenuto DENTRO i builder delle modali
+    // così prende il MediaQuery giusto (viewInsets della tastiera, ecc.)
+    Widget buildContent(BuildContext ctx) {
+      return contentBuilder != null
+          ? contentBuilder(ctx)
+          : (content ?? const SizedBox());
+    }
 
     if (isIos()) {
       return showCupertinoModalPopup<T>(
         context: context,
-        builder: (context) {
-          return CupertinoActionSheet(
-            message: Stack(
-              children: [
-                if (hideCloseButton == null || !hideCloseButton)
-                  CuReSpacing.vertical(0.5),
-                Padding(
-                    padding: EdgeInsets.only(
-                      top: hideCloseButton == null || hideCloseButton ? 5 : 30,
+        builder: (ctx) {
+          final bottomInset = MediaQuery.of(ctx).viewInsets.bottom;
+
+          return SafeArea(
+            top: false,
+            child: AnimatedPadding(
+              duration: const Duration(milliseconds: 150),
+              curve: Curves.easeOut,
+              padding: EdgeInsets.only(bottom: bottomInset),
+              child: CupertinoActionSheet(
+                message: Stack(
+                  children: [
+                    if (hideCloseButton == null || !hideCloseButton)
+                      CuReSpacing.vertical(0.5),
+
+                    // ✅ Scroll + padding interno: evita che la tastiera copra il content
+                    Padding(
+                      padding: EdgeInsets.only(
+                        top: (hideCloseButton == null || hideCloseButton)
+                            ? 5
+                            : 30,
+                      ),
+                      child: SingleChildScrollView(
+                        padding: const EdgeInsets.only(bottom: 12),
+                        child: buildContent(ctx),
+                      ),
                     ),
-                    child: builtContent),
-                if (hideCloseButton == null || !hideCloseButton)
-                  Positioned(
-                    right: 0,
-                    top: 0,
-                    child: CuReButton(
-                      type: CuReButtonType.text,
-                      icon: CuReIcons.close,
-                      onPressed: () => Navigator.of(context).pop(),
-                    ),
-                  ),
-                if (title != '')
-                  Positioned.fill(
-                      child: Align(
+
+                    if (hideCloseButton == null || !hideCloseButton)
+                      Positioned(
+                        right: 0,
+                        top: 0,
+                        child: CuReButton(
+                          type: CuReButtonType.text,
+                          icon: CuReIcons.close,
+                          onPressed: () => Navigator.of(ctx).pop(),
+                        ),
+                      ),
+
+                    if (title.isNotEmpty)
+                      Positioned.fill(
+                        child: Align(
                           alignment: Alignment.topCenter,
-                          child: CuReText(title,
+                          child: Padding(
+                            padding: const EdgeInsets.only(top: 6),
+                            child: CuReText(
+                              title,
                               weight: FontWeight.w600,
                               size: 13,
-                              color: Colors.grey.shade600)))
-              ],
-            ),
-            actions: actions
-                .map((action) => CupertinoActionSheetAction(
-                      child: Text(
-                        action.label,
-                        style: TextStyle(
-                          fontSize: 14,
-                          color: CuReDesign.primaryColor,
+                              color: Colors.grey.shade600,
+                            ),
+                          ),
                         ),
                       ),
-                      onPressed: () {
-                        if (action.onPressed != null) action.onPressed!();
-                        Navigator.of(context).pop();
-                      },
-                    ))
-                .toList(),
-          );
-        },
-      );
-    } else {
-      return showModalBottomSheet<T>(
-        context: context,
-        isScrollControlled: true,
-        builder: (ctx) {
-          final child = Container(
-            padding: const EdgeInsets.all(20),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                if (title != '') ...[
-                  Text(
-                    title,
-                    style: const TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  const SizedBox(height: 10),
-                ],
-                builtContent,
-                const SizedBox(height: 20),
-                if (actions.isNotEmpty) ...[
-                  for (var action in actions)
-                    TextButton(
-                      onPressed: () {
-                        if (action.onPressed != null) action.onPressed!();
-                        Navigator.of(ctx).pop();
-                      },
-                      child: Text(
-                        action.label,
-                        style: TextStyle(
-                          color: CuReDesign.primaryColor,
+                  ],
+                ),
+                actions: actions
+                    .map(
+                      (action) => CupertinoActionSheetAction(
+                        onPressed: () {
+                          if (action.onPressed != null) action.onPressed!();
+                          Navigator.of(ctx).pop();
+                        },
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            if (action.icon != null) ...[
+                              Icon(
+                                action.icon!,
+                                color: action.color ?? CuReDesign.primaryColor,
+                              ),
+                              const SizedBox(width: 8),
+                            ],
+                            Text(
+                              action.label,
+                              style: TextStyle(
+                                fontSize: 14,
+                                color: action.color ?? CuReDesign.primaryColor,
+                              ),
+                            ),
+                          ],
                         ),
                       ),
-                    ),
-                ],
-              ],
-            ),
-          );
-
-          if (useIsolatedNavigator) {
-            return Navigator(
-              onGenerateRoute: (_) => MaterialPageRoute(
-                builder: (_) => child,
+                    )
+                    .toList(),
               ),
-            );
-          }
-
-          return child;
+            ),
+          );
         },
       );
     }
+
+    // ANDROID / MATERIAL
+    return showModalBottomSheet<T>(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent, // per i bordi arrotondati
+      builder: (ctx) {
+        final bottomInset = MediaQuery.of(ctx).viewInsets.bottom;
+
+        Widget sheet = SafeArea(
+          top: false,
+          child: AnimatedPadding(
+            duration: const Duration(milliseconds: 150),
+            curve: Curves.easeOut,
+            padding: EdgeInsets.only(bottom: bottomInset),
+            child: Container(
+              decoration: BoxDecoration(
+                color: Theme.of(ctx).scaffoldBackgroundColor,
+                borderRadius: const BorderRadius.vertical(
+                  top: Radius.circular(18),
+                ),
+              ),
+              child: SingleChildScrollView(
+                padding: const EdgeInsets.all(20),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    // opzionale: maniglia
+                    Container(
+                      width: 42,
+                      height: 5,
+                      margin: const EdgeInsets.only(bottom: 12),
+                      decoration: BoxDecoration(
+                        color: Colors.grey.shade300,
+                        borderRadius: BorderRadius.circular(100),
+                      ),
+                    ),
+
+                    if (title.isNotEmpty) ...[
+                      Text(
+                        title,
+                        style: const TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                      const SizedBox(height: 10),
+                    ],
+
+                    buildContent(ctx),
+
+                    const SizedBox(height: 20),
+
+                    if (actions.isNotEmpty) ...[
+                      for (final action in actions)
+                        TextButton(
+                          onPressed: () {
+                            if (action.onPressed != null) action.onPressed!();
+                            Navigator.of(ctx).pop();
+                          },
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              if (action.icon != null) ...[
+                                Icon(
+                                  action.icon!,
+                                  color:
+                                      action.color ?? CuReDesign.primaryColor,
+                                ),
+                                const SizedBox(width: 8),
+                              ],
+                              Text(
+                                action.label,
+                                style: TextStyle(
+                                  color:
+                                      action.color ?? CuReDesign.primaryColor,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                    ],
+                  ],
+                ),
+              ),
+            ),
+          ),
+        );
+
+        if (useIsolatedNavigator) {
+          return Navigator(
+            onGenerateRoute: (_) => MaterialPageRoute(builder: (_) => sheet),
+          );
+        }
+
+        return sheet;
+      },
+    );
   }
 
   static String fromIconToString(IconData icon) {
@@ -445,7 +571,8 @@ class CuReUtils {
     ];
   }
 
-  static RichText parseHtml(String htmlText, double? fontSize) {
+  static RichText parseHtml(
+      String htmlText, double? fontSize, TextAlign? textAlign, Color? color) {
     final List<TextSpan> spans = [];
 
     final regex = RegExp(r'(<b>(.*?)<\/b>)|([^<]+)', caseSensitive: false);
@@ -454,7 +581,6 @@ class CuReUtils {
 
     for (final match in matches) {
       if (match.group(1) != null) {
-        // testo in <b>
         spans.add(
           TextSpan(
             text: match.group(2),
@@ -462,7 +588,6 @@ class CuReUtils {
           ),
         );
       } else if (match.group(3) != null) {
-        // testo normale
         spans.add(
           TextSpan(
             text: match.group(3),
@@ -473,11 +598,11 @@ class CuReUtils {
     }
 
     return RichText(
-      textAlign: TextAlign.center,
+      textAlign: textAlign ?? TextAlign.center,
       text: TextSpan(
         children: spans,
         style: TextStyle(
-          color: CuReDesign.textColor,
+          color: color ?? CuReDesign.textColor,
           fontSize: fontSize ?? 16,
           height: 1.5,
         ),

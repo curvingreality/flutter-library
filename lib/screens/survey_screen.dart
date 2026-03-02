@@ -13,12 +13,14 @@ class CuReSurveyScreen extends StatefulWidget {
       required this.questions,
       this.onSkip,
       this.onFinish,
+      this.hideProgressBar,
       this.logo});
 
   final List<CuReSurveyQuestion> questions;
   final Function()? onSkip;
   final Function(Map<int, List<CuReSurveyAnswer>>)? onFinish;
   final String? logo;
+  final bool? hideProgressBar;
 
   @override
   State<CuReSurveyScreen> createState() => _CuReSurveyScreenState();
@@ -31,17 +33,36 @@ class _CuReSurveyScreenState extends State<CuReSurveyScreen> {
 
   @override
   initState() {
-    CuReNotifications.key = GlobalKey<CuReScaffoldState>();
+    final key = CuReNotifications.getRandomKey();
+    CuReNotifications.keys['survey'] = key;
+    for (var question in widget.questions) {
+      for (var answer in question.answers) {
+        if (answer.selected != null && answer.selected == true) {
+          if (answers[widget.questions.indexOf(question)] == null) {
+            answers[widget.questions.indexOf(question)] = [];
+          }
+          answers[widget.questions.indexOf(question)]!.add(answer);
+        }
+      }
+    }
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return CuReScaffold(
-      key: CuReNotifications.key,
+      key: CuReNotifications.keys['survey'],
       body: SafeArea(
           child: Padding(
-        padding: const EdgeInsets.all(24.0),
+        padding: EdgeInsets.only(
+            left: 24,
+            right: 24,
+            bottom: 24,
+            top: widget.onSkip != null ||
+                    widget.logo != null ||
+                    widget.hideProgressBar != true
+                ? 24
+                : 0),
         child: Column(
           children: [
             Row(
@@ -60,12 +81,13 @@ class _CuReSurveyScreenState extends State<CuReSurveyScreen> {
                     size: CuReButtonSize.small,
                     type: CuReButtonType.text,
                   ),
-                CuReProgressBar(
-                    height: 7,
-                    width: MediaQuery.of(context).size.width * 0.44,
-                    percentage:
-                        (100 * (currentStep + 1)) / widget.questions.length +
-                            1),
+                if (widget.hideProgressBar != true)
+                  CuReProgressBar(
+                      height: 7,
+                      width: MediaQuery.of(context).size.width * 0.44,
+                      percentage:
+                          (100 * (currentStep + 1)) / widget.questions.length +
+                              1),
                 if (widget.onSkip != null && widget.logo == null)
                   const SizedBox(width: 45),
                 if (widget.logo != null)
@@ -92,113 +114,126 @@ class _CuReSurveyScreenState extends State<CuReSurveyScreen> {
               ),
             ),
             CuReSpacing.vertical(),
-            Column(children: [
-              ...widget.questions[currentStep].answers
-                  .asMap()
-                  .map((i, e) => MapEntry(
-                      i,
-                      Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 8.0),
-                          child: FadeInUp(
-                            key: ValueKey(e.id + currentStep),
-                            from: 10,
-                            duration: CuReDesign.animationDurations[
-                                CuReAnimationDuration.fast]!,
-                            delay: Duration(milliseconds: 100 * i),
-                            child: Material(
-                                color: Colors.transparent,
-                                child: InkWell(
-                                  borderRadius: BorderRadius.circular(
-                                    CuReDesign.borderRadius,
-                                  ),
-                                  splashFactory: Utils.getSplashFactory(),
-                                  onTap: () {
-                                    onAnswerTap(e);
-                                  },
-                                  child: Ink(
-                                      padding: const EdgeInsets.symmetric(
-                                          horizontal: 18, vertical: 10),
-                                      decoration: BoxDecoration(
-                                        color: answers[currentStep] != null &&
-                                                answers[currentStep]!
-                                                    .map((e) => e.id)
-                                                    .contains(e.id)
-                                            ? CuReDesign.primaryColor
-                                                .withAlpha(30)
-                                            : Colors.transparent,
-                                        border: Border.all(
-                                            color: _getBorderColor(e),
-                                            width: 1),
-                                        borderRadius: BorderRadius.circular(
-                                          CuReDesign.borderRadius,
-                                        ),
+            Container(
+                height: MediaQuery.of(context).size.height -
+                    300 -
+                    MediaQuery.of(context).padding.bottom * 2,
+                child: SingleChildScrollView(
+                    child: Column(children: [
+                  ...widget.questions[currentStep].answers
+                      .asMap()
+                      .map((i, e) => MapEntry(
+                          i,
+                          Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(vertical: 8.0),
+                              child: FadeInUp(
+                                key: ValueKey(e.id + currentStep),
+                                from: 10,
+                                duration: CuReDesign.animationDurations[
+                                    CuReAnimationDuration.fast]!,
+                                delay: Duration(milliseconds: 100 * i),
+                                child: Material(
+                                    color: Colors.transparent,
+                                    child: InkWell(
+                                      borderRadius: BorderRadius.circular(
+                                        CuReDesign.borderRadius,
                                       ),
-                                      child: Row(children: [
-                                        if (e.icon != null)
-                                          Icon(
-                                            e.icon,
-                                            size: 23,
-                                          ),
-                                        if (e.icon != null)
-                                          CuReSpacing.horizontal(0.5),
-                                        CuReText(
-                                          e.text,
-                                          size: 19,
-                                        ),
-                                        const Spacer(),
-                                        if (widget.questions[currentStep]
-                                            .multipleChoices) ...[
-                                          CuReCheckbox(
-                                            checked:
+                                      splashFactory: Utils.getSplashFactory(),
+                                      onTap: () {
+                                        onAnswerTap(e);
+                                      },
+                                      child: Ink(
+                                          padding: const EdgeInsets.symmetric(
+                                              horizontal: 18, vertical: 10),
+                                          decoration: BoxDecoration(
+                                            color:
                                                 answers[currentStep] != null &&
+                                                        answers[currentStep]!
+                                                            .map((e) => e.id)
+                                                            .contains(e.id)
+                                                    ? CuReDesign.primaryColor
+                                                        .withAlpha(30)
+                                                    : Colors.transparent,
+                                            border: Border.all(
+                                                color: _getBorderColor(e),
+                                                width: 1),
+                                            borderRadius: BorderRadius.circular(
+                                              CuReDesign.borderRadius,
+                                            ),
+                                          ),
+                                          child: Row(children: [
+                                            if (e.icon != null)
+                                              Icon(
+                                                e.icon,
+                                                size: 23,
+                                              ),
+                                            if (e.icon != null)
+                                              CuReSpacing.horizontal(0.5),
+                                            CuReText(
+                                              e.text,
+                                              size: 19,
+                                            ),
+                                            const Spacer(),
+                                            if (widget.questions[currentStep]
+                                                .multipleChoices) ...[
+                                              CuReCheckbox(
+                                                checked: answers[currentStep] !=
+                                                        null &&
                                                     answers[currentStep]!
                                                         .map((e) => e.id)
                                                         .contains(e.id),
-                                            onChanged: (value) {
-                                              onAnswerTap(e);
-                                            },
-                                          )
-                                        ] else ...[
-                                          CuReRadio(
-                                              value: e.id,
-                                              onChanged: (value) {
-                                                onAnswerTap(e);
-                                              },
-                                              groupValue: answers[currentStep]
-                                                  ?.first
-                                                  .id)
-                                        ]
-                                      ])),
-                                )),
-                          ))))
-                  .values
-                  .toList(),
-            ]),
+                                                onChanged: (value) {
+                                                  onAnswerTap(e);
+                                                },
+                                              )
+                                            ] else ...[
+                                              CuReRadio(
+                                                  value: e.id,
+                                                  onChanged: (value) {
+                                                    onAnswerTap(e);
+                                                  },
+                                                  groupValue:
+                                                      answers[currentStep]
+                                                          ?.first
+                                                          .id)
+                                            ]
+                                          ])),
+                                    )),
+                              ))))
+                      .values
+                      .toList(),
+                ]))),
             const Spacer(),
             Row(
               children: [
-                CuReButton(
-                  label: CuReLocalization.get('back'),
-                  icon: CuReIcons.arrowBack,
-                  type: CuReButtonType.outlined,
-                  minSize: Size(MediaQuery.of(context).size.width * 0.42, 48),
-                  onPressed: currentStep > 0
-                      ? () {
-                          isGoingPrevious = true;
-                          setState(() {
-                            currentStep--;
-                          });
-                        }
-                      : null,
-                ),
-                const Spacer(),
+                if (widget.questions.length > 1)
+                  CuReButton(
+                    label: CuReLocalization.get('back'),
+                    icon: CuReIcons.arrowBack,
+                    type: CuReButtonType.outlined,
+                    minSize: Size(MediaQuery.of(context).size.width * 0.42, 48),
+                    onPressed: currentStep > 0
+                        ? () {
+                            isGoingPrevious = true;
+                            setState(() {
+                              currentStep--;
+                            });
+                          }
+                        : null,
+                  ),
+                if (widget.questions.length > 1) const Spacer(),
                 CuReButton(
                   label: currentStep < widget.questions.length - 1
                       ? CuReLocalization.get('next')
                       : CuReLocalization.get('finish'),
                   icon: CuReIcons.arrowForward,
                   iconPosition: CuReIconPosition.suffix,
-                  minSize: Size(MediaQuery.of(context).size.width * 0.42, 48),
+                  minSize: Size(
+                      widget.questions.length > 1
+                          ? MediaQuery.of(context).size.width * 0.42
+                          : MediaQuery.of(context).size.width - 48,
+                      48),
                   onPressed: answers[currentStep] != null &&
                           answers[currentStep]!.isNotEmpty
                       ? () {

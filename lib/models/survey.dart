@@ -19,6 +19,8 @@ class CuReSurveyAnswer {
   final int id;
   final IconData? icon;
   final String text;
+  final bool? selected;
 
-  CuReSurveyAnswer({this.icon, required this.text, required this.id});
+  CuReSurveyAnswer(
+      {this.icon, required this.text, required this.id, this.selected});
 }

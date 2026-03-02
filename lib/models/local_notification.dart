@@ -1,5 +1,6 @@
 import 'package:curving_reality_library/enums/local_notification.dart';
 import 'package:flutter/material.dart';
+import 'package:curving_reality_library/widgets/scaffold.dart';
 
 class LocalNotification {
   final int? id;
@@ -11,6 +12,7 @@ class LocalNotification {
   final Duration? duration;
   final Function? onTap;
   final LocalNotificationType? type;
+  final GlobalKey<CuReScaffoldState>? scaffoldKey;
 
   LocalNotification({
     this.id,
@@ -22,5 +24,6 @@ class LocalNotification {
     this.duration,
     this.onTap,
     this.type,
+    this.scaffoldKey,
   });
 }

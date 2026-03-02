@@ -13,7 +13,7 @@ class CuReForgotPasswordScreen extends StatefulWidget {
 
   final Image? logo;
   final bool? isSending;
-  final Function()? onPasswordResetSend;
+  final Function(String)? onPasswordResetSend;
   final Image? background;
 
   @override
@@ -22,11 +22,11 @@ class CuReForgotPasswordScreen extends StatefulWidget {
 }
 
 class _CuReForgotPasswordScreenState extends State<CuReForgotPasswordScreen> {
+  final TextEditingController controller = TextEditingController();
+  bool isEmailValid = false;
+
   @override
   Widget build(BuildContext context) {
-    final TextEditingController controller = TextEditingController();
-    bool isEmailValid = false;
-
     return CuReScaffold(
         body: Stack(children: [
       if (widget.background != null)
@@ -107,6 +107,11 @@ class _CuReForgotPasswordScreenState extends State<CuReForgotPasswordScreen> {
                   child: CuReTextField(
                     controller: controller,
                     placeholder: Localization.getValue('email_placeholder'),
+                    onChanged: (value) {
+                      setState(() {
+                        isEmailValid = CuReUtils.isEmailValid(value);
+                      });
+                    },
                   ),
                 ),
                 CuReSpacing.vertical(0.6),
@@ -122,7 +127,7 @@ class _CuReForgotPasswordScreenState extends State<CuReForgotPasswordScreen> {
                     disabled: !isEmailValid,
                     onPressed: () {
                       if (widget.onPasswordResetSend != null) {
-                        widget.onPasswordResetSend!();
+                        widget.onPasswordResetSend!(controller.text);
                       }
                     },
                   ),

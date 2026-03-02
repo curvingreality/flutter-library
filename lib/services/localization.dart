@@ -196,7 +196,6 @@ class Localization {
           'Abbiamo inviato un\'altra email di verifica. Controlla la tua casella di posta e la cartella spam.',
       'survey_max_choices_reached': 'Hai raggiunto il numero massimo di scelte.'
     },
-    /*
     'es': {
       'skip': 'Saltar',
       'next': 'Siguiente',
@@ -295,7 +294,6 @@ class Localization {
           'Hemos enviado otro correo de verificación. Por favor, revisa tu bandeja de entrada y la carpeta de spam.',
       'survey_max_choices_reached': 'Has alcanzado el número máximo de opciones'
     }
-    */
   };
 
   static void setValues(Map<String, Map<String, dynamic>> values) {

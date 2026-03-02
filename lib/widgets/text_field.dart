@@ -31,6 +31,8 @@ class CuReTextField extends StatefulWidget {
     this.fontSize,
     this.fontWeight,
     this.padding,
+    this.focusNode,
+    this.textColor,
   });
 
   final String? placeholder;
@@ -58,6 +60,8 @@ class CuReTextField extends StatefulWidget {
   final double? fontSize;
   final FontWeight? fontWeight;
   final EdgeInsets? padding;
+  final FocusNode? focusNode;
+  final Color? textColor;
 
   @override
   State<CuReTextField> createState() => _CuReTextFieldState();
@@ -140,9 +144,14 @@ class _CuReTextFieldState extends State<CuReTextField> {
 
   Widget _getIosTextField() {
     return CupertinoTextField(
+      focusNode: widget.focusNode,
       textAlign: widget.textAlign ?? TextAlign.start,
       style: TextStyle(
-        color: CuReDesign.useDarkMode ? Colors.white : CuReDesign.textColor,
+        color: widget.textColor != null
+            ? widget.textColor
+            : CuReDesign.useDarkMode
+                ? CuReDesign.whiteColor
+                : CuReDesign.textColor,
         fontSize: widget.fontSize ?? 16,
         fontWeight: widget.fontWeight ?? FontWeight.normal,
       ),
@@ -211,9 +220,12 @@ class _CuReTextFieldState extends State<CuReTextField> {
 
   Widget _getAndroidTextField() {
     return TextField(
+      focusNode: widget.focusNode,
       textAlign: widget.textAlign ?? TextAlign.start,
       style: TextStyle(
-        color: CuReDesign.useDarkMode ? Colors.white : CuReDesign.textColor,
+        color: CuReDesign.useDarkMode && widget.color == null
+            ? Colors.white
+            : CuReDesign.textColor,
         fontSize: widget.fontSize ?? 16,
         fontWeight: widget.fontWeight ?? FontWeight.normal,
       ),
@@ -584,6 +596,9 @@ class _CuReTextFieldState extends State<CuReTextField> {
 
           if (picked != null) {
             widget.controller.text = _getDateTimeText(picked!);
+            if (widget.onChanged != null) {
+              widget.onChanged!(picked);
+            }
             _runValidationCheck(picked.toString());
           }
         };

@@ -3,7 +3,6 @@ import 'package:curving_reality_library/curving_reality_library.dart';
 import 'package:curving_reality_library/enums/animation.dart';
 import 'package:curving_reality_library/enums/local_notification.dart';
 import 'package:curving_reality_library/models/survey.dart';
-import 'package:curving_reality_library/services/notifications.dart';
 import 'package:curving_reality_library/utils.dart';
 import 'package:flutter/material.dart';
 
@@ -114,7 +113,7 @@ class _CuReSurveyScreenState extends State<CuReSurveyScreen> {
               ),
             ),
             CuReSpacing.vertical(),
-            Container(
+            SizedBox(
                 height: MediaQuery.of(context).size.height -
                     300 -
                     MediaQuery.of(context).padding.bottom * 2,

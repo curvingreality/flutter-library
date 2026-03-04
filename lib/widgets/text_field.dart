@@ -147,11 +147,10 @@ class _CuReTextFieldState extends State<CuReTextField> {
       focusNode: widget.focusNode,
       textAlign: widget.textAlign ?? TextAlign.start,
       style: TextStyle(
-        color: widget.textColor != null
-            ? widget.textColor
-            : CuReDesign.useDarkMode
+        color: widget.textColor ??
+            (CuReDesign.useDarkMode
                 ? CuReDesign.whiteColor
-                : CuReDesign.textColor,
+                : CuReDesign.textColor),
         fontSize: widget.fontSize ?? 16,
         fontWeight: widget.fontWeight ?? FontWeight.normal,
       ),

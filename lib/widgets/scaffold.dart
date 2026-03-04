@@ -3,7 +3,6 @@ import 'dart:collection';
 import 'package:animate_do/animate_do.dart';
 import 'package:curving_reality_library/curving_reality_library.dart';
 import 'package:curving_reality_library/enums/animation.dart';
-import 'package:curving_reality_library/services/notifications.dart';
 import 'package:curving_reality_library/utils.dart';
 import 'package:curving_reality_library/widgets/notification_banner.dart';
 import 'package:flutter/material.dart';

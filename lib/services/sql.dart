@@ -3,8 +3,8 @@ import 'package:curving_reality_library/models/db_table.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 
-typedef ToMap<T> = Map<String, dynamic?> Function(T value);
-typedef FromMap<T> = T Function(Map<String, dynamic?> map);
+typedef ToMap<T> = Map<String, dynamic> Function(T value);
+typedef FromMap<T> = T Function(Map<String, dynamic> map);
 
 class CuReSqlService<T> {
   static Database? database;

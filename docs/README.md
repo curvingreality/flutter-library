@@ -13,6 +13,10 @@
 
 # What is this for?
 
+<p style="font-size:20px; line-height: 2rem;">
+A Flutter library that speeds up development with ready-to-use UI components, screens, and services to build high-quality iOS and Android apps from a single codebase.
+</p>
+
 The **Curving Reality Flutter Library** is designed to accelerate your app development workflow.<br>
 It provides a rich collection of efficient and visually appealing **UI components**, **ready-to-use screens**, and practical **services**, including powerful tools for **forms validation**.<br>
 <br>
@@ -45,7 +49,7 @@ Run this command in your Flutter project to install the library
 flutter pub add curving_reality_library
 ```
 
-!> If you want to use the ready-to-use screens you need to add the [animate_do package](https://pub.dev/packages/animate_do)
+!> If you want to use the ready-to-use screens you need to add the [animate_do](https://pub.dev/packages/animate_do) package
 
 ## Import
 

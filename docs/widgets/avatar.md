@@ -2,7 +2,7 @@
 
 ---
 
-# Example
+## Example
 
 ```dart
 CuReAvatar(

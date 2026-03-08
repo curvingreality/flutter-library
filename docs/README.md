@@ -23,7 +23,21 @@ It provides a rich collection of efficient and visually appealing **UI component
 Its core mission is to **reduce boilerplate code and simplify common development tasks**, allowing you to deliver **high-quality applications more quickly**.<br>
 While focusing on productivity, the library also emphasizes **design consistency** and **user experience**, helping you create apps that are not only functional but also beautifully crafted.
 
-# Example
+<br>
+
+# Example: before and after
+
+A multiplatform button created without and with the library.
+
+<div class="flex-center">
+    <div class="laptop-container">
+        <iframe src="https://www.curvingreality.com/projects/flutter-library/before-after.html" style="height: 1000px; border: solid 6px #111; border-radius: 36px; box-shadow: 0px 15px 15px #b0b0b0"></iframe>
+    </div>
+</div>
+
+<br>
+
+# Interactive sample
 
 Navigate this interactive example with all the components.<br>
 Keep in mind that this is the representation of the Android UI. The style and the animations will be different when running on iOS.

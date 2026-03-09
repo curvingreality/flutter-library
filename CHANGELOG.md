@@ -1,3 +1,40 @@
+## [1.1.2] - 2026-03-09
+
+### Added
+
+- New icon: checkCircleOutlined
+
+### Changed
+
+- N/A
+
+### Fixed
+
+- Info Widget icons
+- Check circle icon
+
+### Deprecated
+
+- N/A
+
+### Removed
+
+- N/A
+
+### Security
+
+- N/A
+
+### Code
+
+- N/A
+
+### Other
+
+- N/A
+
+---
+
 ## [1.1.1] - 2026-03-02
 
 ### Added

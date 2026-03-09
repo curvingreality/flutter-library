@@ -79,9 +79,9 @@ class CuReInfo extends StatelessWidget {
     }
     switch (type) {
       case CuReInfoType.success:
-        return CuReIcons.checkCircle;
+        return CuReIcons.checkCircleOutlined;
       case CuReInfoType.warning:
-        return CuReIcons.warning;
+        return CuReIcons.warningOutlined;
       case CuReInfoType.error:
         return CuReIcons.error;
       case CuReInfoType.info:

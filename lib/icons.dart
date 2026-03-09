@@ -11,8 +11,11 @@ class CuReIcons {
       CuReUtils.isIos() ? CupertinoIcons.clear_circled : Icons.cancel_outlined;
   static IconData get check =>
       CuReUtils.isIos() ? CupertinoIcons.check_mark : Icons.check;
-  static IconData get checkCircle => CuReUtils.isIos()
+  static IconData get checkCircleOutlined => CuReUtils.isIos()
       ? CupertinoIcons.check_mark_circled
+      : Icons.check_circle_outline;
+  static IconData get checkCircle => CuReUtils.isIos()
+      ? CupertinoIcons.check_mark_circled_solid
       : Icons.check_circle;
   static IconData get arrowForward =>
       CuReUtils.isIos() ? CupertinoIcons.forward : Icons.arrow_forward;

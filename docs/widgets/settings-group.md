@@ -3,7 +3,7 @@
 ---
 
 <div class="smartphone-container">
-    <iframe src="https://www.curvingreality.com/projects/flutter-library?screen=settings" class="iframe-device" style="height: 200px !important;"></iframe>
+    <iframe src="https://www.curvingreality.com/projects/flutter-library/?screen=settings" class="iframe-device" style="height: 200px !important;"></iframe>
 </div>
 
 ## Example

@@ -5,7 +5,7 @@
 It replaces the default **Radio** widget in order to implement custom logic and different UI based on the OS.
 
 <div class="smartphone-container">
-    <iframe src="https://www.curvingreality.com/projects/flutter-library?screen=radio" class="iframe-device"></iframe>
+    <iframe src="https://www.curvingreality.com/projects/flutter-library/?screen=radio" class="iframe-device"></iframe>
 </div>
 
 ## Example

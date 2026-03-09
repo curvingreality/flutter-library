@@ -2,6 +2,10 @@
 
 ---
 
+<div class="smartphone-container">
+    <iframe src="https://www.curvingreality.com/projects/flutter-library?screen=badge" class="iframe-device" style="min-height: 77px; height: 77px !important;"></iframe>
+</div>
+
 ## Example
 
 ```dart

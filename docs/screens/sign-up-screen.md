@@ -7,6 +7,10 @@ Try it in the [interactive example](/#/example) under the **screens** section.
 
 !> This and all the screens depend on the package [animate_do](https://pub.dev/packages/animate_do).
 
+<div class="smartphone-container">
+    <iframe src="https://www.curvingreality.com/projects/flutter-library?screen=sign-up-screen" style="height: 900px !important;"></iframe>
+</div>
+
 ## Example
 
 ```dart

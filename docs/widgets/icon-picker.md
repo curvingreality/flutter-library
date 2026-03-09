@@ -4,6 +4,10 @@
 
 Used to show a selection of custom icons to choose from, divided by groups.
 
+<div class="smartphone-container">
+    <iframe src="https://www.curvingreality.com/projects/flutter-library?screen=icon_picker" class="iframe-device"></iframe>
+</div>
+
 ## Example
 
 ```dart

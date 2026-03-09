@@ -2,6 +2,10 @@
 
 ---
 
+<div class="smartphone-container">
+    <iframe src="https://www.curvingreality.com/projects/flutter-library?screen=expandable-box" class="iframe-device" style="height: 110px !important;"></iframe>
+</div>
+
 ## Example
 
 ```dart

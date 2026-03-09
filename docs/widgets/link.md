@@ -6,6 +6,10 @@ It shows a label that can be tapped to open an URL.
 
 !> This widget depends on the package [url_launcher](https://pub.dev/packages/url_launcher).
 
+<div class="smartphone-container">
+    <iframe src="https://www.curvingreality.com/projects/flutter-library?screen=link" class="iframe-device" style="height: 130px !important;"></iframe>
+</div>
+
 ## Example
 
 ```dart

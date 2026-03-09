@@ -2,6 +2,10 @@
 
 ---
 
+<div class="smartphone-container">
+    <iframe src="https://www.curvingreality.com/projects/flutter-library?screen=empty-state" class="iframe-device" style="height: 216px !important;"></iframe>
+</div>
+
 ## Example
 
 ```dart

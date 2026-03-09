@@ -2,6 +2,10 @@
 
 ---
 
+<div class="smartphone-container">
+    <iframe src="https://www.curvingreality.com/projects/flutter-library?screen=progress-bar" class="iframe-device" style="height: 248px !important;"></iframe>
+</div>
+
 ## Example
 
 ```dart

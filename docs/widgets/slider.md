@@ -4,6 +4,10 @@
 
 It replaces the default **Slider** widget in order to implement custom logic and different UI based on the OS.
 
+<div class="smartphone-container">
+    <iframe src="https://www.curvingreality.com/projects/flutter-library?screen=slider" class="iframe-device" style="height: 180px !important;"></iframe>
+</div>
+
 ## Example
 
 ```dart

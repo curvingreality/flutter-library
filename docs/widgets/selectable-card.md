@@ -2,6 +2,10 @@
 
 ---
 
+<div class="smartphone-container">
+    <iframe src="https://www.curvingreality.com/projects/flutter-library?screen=selectable-card" class="iframe-device" style="height: 250px !important;"></iframe>
+</div>
+
 ## Example
 
 ```dart

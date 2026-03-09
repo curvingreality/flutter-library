@@ -5,7 +5,7 @@
 The **CuReTextField** component provides simple and unique validation methods combined with UI elements in order to create powerful forms in no-time.
 
 <div class="smartphone-container">
-    <iframe src="https://www.curvingreality.com/projects/flutter-library?screen=text_fields" class="iframe-device" style="height: 300px !important;"></iframe>
+    <iframe src="https://www.curvingreality.com/projects/flutter-library/?screen=text_fields" class="iframe-device" style="height: 300px !important;"></iframe>
 </div>
 
 ## Basic usage

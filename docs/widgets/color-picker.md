@@ -6,7 +6,7 @@ Used to show a selection of custom colors to choose from.<br>
 You can select a color from a **dialog** or directly from the **screen**.
 
 <div class="smartphone-container">
-    <iframe src="https://www.curvingreality.com/projects/flutter-library?screen=color_picker" class="iframe-device"></iframe>
+    <iframe src="https://www.curvingreality.com/projects/flutter-library/?screen=color_picker" class="iframe-device"></iframe>
 </div>
 
 ## Picker with dialog

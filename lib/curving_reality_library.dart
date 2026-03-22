@@ -47,6 +47,7 @@ export 'widgets/color_picker.dart';
 export 'widgets/empty_state.dart';
 export 'widgets/picker.dart';
 export 'widgets/icon.dart';
+export 'widgets/bottom_navigation_bar.dart';
 
 // Enums exports
 export './enums/button.dart';
@@ -67,6 +68,7 @@ export './models/dialog.dart';
 export './models/toggle_buttons.dart';
 export './models/settings_item.dart';
 export './models/local_notification.dart';
+export './models/bottom_navigation_bar.dart';
 
 // Services exports
 export './services/storage.dart';

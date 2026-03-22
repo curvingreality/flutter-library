@@ -24,7 +24,7 @@ class CuReScaffold extends StatefulWidget {
   final CuReAppBar? appBar;
   final Widget? body;
   final bool? resizeToAvoidBottomInset;
-  final BottomNavigationBar? bottomNavigationBar;
+  final Widget? bottomNavigationBar;
   final bool? extendedBody;
   final FloatingActionButtonLocation? floatingActionButtonLocation;
   final Widget? floatingActionButton;

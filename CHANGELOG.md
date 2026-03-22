@@ -1,3 +1,42 @@
+## [1.2.0] - 2026-03-22
+
+### Added
+
+- New Widget: CuReBottomNavigationBar
+- New icons: deviceDesktop, deviceLaptop, deviceMobile, download, downloadOutlined
+- Icon Widget: now animates when changes icon, color or size
+
+### Changed
+
+- Icons renaming for better readability
+- Scaffold Widget: now the bottomNavigationBar accepts every widget
+
+### Fixed
+
+- N/A
+
+### Deprecated
+
+- N/A
+
+### Removed
+
+- N/A
+
+### Security
+
+- N/A
+
+### Code
+
+- Replaced deprecated code
+
+### Other
+
+- N/A
+
+---
+
 ## [1.1.2] - 2026-03-09
 
 ### Added

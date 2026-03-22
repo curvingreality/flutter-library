@@ -3,6 +3,7 @@
 ---
 
 - [Scaffold](widgets/scaffold.md)
+- [<div class="new-container">Bottom Navigation Bar <div class="new">New</div></div>](widgets/bottom-navigation-bar.md)
 - [App Bar](widgets/app-bar.md)
 - [Heading](widgets/heading.md)
 - [Text](widgets/text.md)

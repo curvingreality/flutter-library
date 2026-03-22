@@ -11,7 +11,7 @@ class CuReBottomNavigationBar extends StatefulWidget {
       this.backgroundColor,
       this.selectedColor,
       this.unselectedColor,
-      this.showSelectedLabel,
+      this.showSelectedLabel = true,
       this.showUnselectedLabel,
       this.horizontalLayout = true,
       this.shape = CuReShape.rounded});
@@ -140,7 +140,7 @@ class _CuReBottomNavigationBarState extends State<CuReBottomNavigationBar> {
       return 22;
     }
     if (widget.showSelectedLabel == true && isSelected) {
-      return 24;
+      return 22;
     }
     if (widget.showUnselectedLabel == true && !isSelected) {
       return 24;

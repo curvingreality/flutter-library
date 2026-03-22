@@ -5,12 +5,10 @@
 <hr class="sidebar-divider">
 
 - General
-
   - [Getting Started](README.md)
   - [License](LICENSE.md)
 
 - Services
-
   - [Design](design.md)
   - [Utils](services/utils.md)
   - [Localization](services/localization.md)
@@ -20,8 +18,8 @@
   - [Supabase](services/supabase.md)
 
 - Widgets
-
   - [Scaffold](widgets/scaffold.md)
+  - [<div class="new-container">Bottom Navigation Bar <div class="new">New</div></div>](widgets/bottom-navigation-bar.md)
   - [App Bar](widgets/app-bar.md)
   - [Heading](widgets/heading.md)
   - [Text](widgets/text.md)
@@ -57,7 +55,6 @@
   - [Cached Network Image](widgets/cached-network-image.md)
 
 - Screens
-
   - [First Loading Screen](screens/first-loading-screen.md)
   - [Welcome Screen](screens/welcome-screen.md)
   - [Survey Screen](screens/survey-screen.md)

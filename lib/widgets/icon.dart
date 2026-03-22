@@ -10,10 +10,22 @@ class CuReIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Icon(
-      icon,
-      color: _getColor(),
-      size: size ?? 24,
+    return AnimatedSwitcher(
+      duration: const Duration(milliseconds: 100),
+      transitionBuilder: (child, animation) {
+        return FadeTransition(
+          opacity: animation,
+          child: child,
+        );
+      },
+      child: Icon(
+        icon,
+        key: ValueKey(icon.toString() +
+            (color?.toString().toString() ?? '') +
+            (size?.toString() ?? '')),
+        color: _getColor(),
+        size: size ?? 24,
+      ),
     );
   }
 

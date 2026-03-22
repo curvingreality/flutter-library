@@ -81,7 +81,7 @@ class CuReIcons {
   static IconData get warningOutlined => CuReUtils.isIos()
       ? CupertinoIcons.exclamationmark_triangle
       : Icons.warning_amber_outlined;
-  static IconData get download => CuReUtils.isIos()
+  static IconData get cloudDownload => CuReUtils.isIos()
       ? CupertinoIcons.cloud_download_fill
       : Icons.cloud_download;
   static IconData get review =>
@@ -164,11 +164,11 @@ class CuReIcons {
       CuReUtils.isIos() ? CupertinoIcons.chart_pie : Icons.pie_chart;
   static IconData get heart =>
       CuReUtils.isIos() ? CupertinoIcons.heart_fill : Icons.favorite;
-  static IconData get heartOutline =>
+  static IconData get heartOutlined =>
       CuReUtils.isIos() ? CupertinoIcons.heart : Icons.favorite_border;
   static IconData get star =>
       CuReUtils.isIos() ? CupertinoIcons.star_fill : Icons.star;
-  static IconData get starOutline =>
+  static IconData get starOutlined =>
       CuReUtils.isIos() ? CupertinoIcons.star : Icons.star_border;
   static IconData get leaderboard =>
       CuReUtils.isIos() ? CupertinoIcons.chart_bar : Icons.leaderboard;
@@ -188,7 +188,7 @@ class CuReIcons {
       : Icons.account_balance_wallet;
   static IconData get bookmark =>
       CuReUtils.isIos() ? CupertinoIcons.bookmark_fill : Icons.bookmark;
-  static IconData get bookmarkOutline =>
+  static IconData get bookmarkOutlined =>
       CuReUtils.isIos() ? CupertinoIcons.bookmark : Icons.bookmark_border;
   static IconData get edit =>
       CuReUtils.isIos() ? CupertinoIcons.pencil : Icons.edit;
@@ -203,4 +203,17 @@ class CuReIcons {
       : Icons.thumb_up_outlined;
   static IconData get thumbsUp =>
       CuReUtils.isIos() ? CupertinoIcons.hand_thumbsup_fill : Icons.thumb_up;
+  static IconData get deviceDesktop =>
+      CuReUtils.isIos() ? CupertinoIcons.device_desktop : Icons.desktop_windows;
+  static IconData get deviceLaptop =>
+      CuReUtils.isIos() ? CupertinoIcons.device_laptop : Icons.laptop_mac;
+  static IconData get deviceMobile => CuReUtils.isIos()
+      ? CupertinoIcons.device_phone_portrait
+      : Icons.smartphone;
+  static IconData get download => CuReUtils.isIos()
+      ? CupertinoIcons.square_arrow_down_fill
+      : Icons.download;
+  static IconData get downloadOutlined => CuReUtils.isIos()
+      ? CupertinoIcons.square_arrow_down
+      : Icons.download_outlined;
 }

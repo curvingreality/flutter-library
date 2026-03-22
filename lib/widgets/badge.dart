@@ -68,12 +68,12 @@ class CuReBadge extends StatelessWidget {
   Color _getBackgroundColor() {
     if (color != null) {
       if (useTransparency != null && useTransparency!) {
-        return color!.withOpacity(0.15);
+        return color!.withValues(alpha: 0.15);
       }
       return CuReUtils.lighten(color!, 0.31);
     }
     if (useTransparency != null && useTransparency!) {
-      return CuReDesign.primaryColor.withOpacity(0.15);
+      return CuReDesign.primaryColor.withValues(alpha: 0.15);
     }
     return CuReUtils.lighten(CuReDesign.primaryColor, 0.31);
   }

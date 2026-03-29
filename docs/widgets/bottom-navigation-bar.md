@@ -139,3 +139,4 @@ CuReBottomNavigationBar(
 | `showSelectedLabel`   | `bool`                              | If set to **true** shows the selected item label (default is **true** on horizontalLayout) | ❌        |
 | `horizontalLayout`    | `bool`                              | If set to **false** the layout becomes vertical or icon only                               | ❌        |
 | `shape`               | `CuReShape`                         | Shape of the items. Default is **CuReShape.rounded**                                       | ❌        |
+| `labelSize`           | `double`                            | Set the size of all labels                                                                 | ❌        |

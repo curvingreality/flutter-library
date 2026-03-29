@@ -8,6 +8,9 @@ It shows a bigger and bolder text by default.
 
 ```dart
 CuReHeading('Hello world', color: Colors.red);
+
+// Gradient example
+CuReHeading('Text with gradient!', gradient: CuReGradient(colors: [Colors.blue, Colors.purple]),)
 ```
 
 ## Properties
@@ -26,3 +29,4 @@ CuReHeading('Hello world', color: Colors.red);
 | `fontFamily`    | `String`         | Custom font family                                                                                                                  | ❌        |
 | `decoration`    | `TextDecoration` | Custom text decoration                                                                                                              | ❌        |
 | `overflow`      | `TextOverflow`   | Text overflow                                                                                                                       | ❌        |
+| `gradient`      | `CuReGradient`   | Applies a custom gradient on the text                                                                                               | ❌        |

@@ -1,3 +1,40 @@
+## [1.2.1] - 2026-03-29
+
+### Added
+
+- Bottom Navigation Bar Widget: added labelSize property
+- Text Widget, Heading Widget: added gradient property
+
+### Changed
+
+- N/A
+
+### Fixed
+
+- Bottom Navigation Bar spacing
+
+### Deprecated
+
+- N/A
+
+### Removed
+
+- N/A
+
+### Security
+
+- N/A
+
+### Code
+
+- N/A
+
+### Other
+
+- N/A
+
+---
+
 ## [1.2.0] - 2026-03-22
 
 ### Added

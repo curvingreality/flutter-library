@@ -14,6 +14,7 @@ class CuReBottomNavigationBar extends StatefulWidget {
       this.showSelectedLabel = true,
       this.showUnselectedLabel,
       this.horizontalLayout = true,
+      this.labelSize,
       this.shape = CuReShape.rounded});
 
   final List<CuReBottomNavigationBarItem> items;
@@ -25,6 +26,7 @@ class CuReBottomNavigationBar extends StatefulWidget {
   final bool? showSelectedLabel;
   final bool? showUnselectedLabel;
   final bool? horizontalLayout;
+  final double? labelSize;
   final CuReShape? shape;
 
   @override
@@ -37,7 +39,10 @@ class _CuReBottomNavigationBarState extends State<CuReBottomNavigationBar> {
   Widget build(BuildContext context) {
     return Ink(
       width: double.infinity,
-      height: 81 + MediaQuery.of(context).padding.bottom,
+      height: (MediaQuery.of(context).padding.bottom > 0
+              ? MediaQuery.of(context).padding.bottom
+              : 12) +
+          55,
       decoration: BoxDecoration(
         color: _getBackgroundColor(),
         borderRadius: const BorderRadius.only(
@@ -46,10 +51,11 @@ class _CuReBottomNavigationBarState extends State<CuReBottomNavigationBar> {
         ),
       ),
       padding: EdgeInsets.only(
-          bottom: MediaQuery.of(context).padding.bottom > 0
-              ? MediaQuery.of(context).padding.bottom
-              : 10,
-          top: 10),
+        bottom: MediaQuery.of(context).padding.bottom > 0
+            ? MediaQuery.of(context).padding.bottom
+            : 12,
+        top: 12,
+      ),
       child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: widget.items.map((item) {
@@ -122,6 +128,9 @@ class _CuReBottomNavigationBarState extends State<CuReBottomNavigationBar> {
   }
 
   double _getFontSize() {
+    if (widget.labelSize != null) {
+      return widget.labelSize!;
+    }
     if (widget.horizontalLayout == true) {
       return 14;
     }

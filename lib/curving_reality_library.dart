@@ -57,6 +57,7 @@ export './enums/progress_indicator.dart';
 export './enums/avatar.dart';
 export './enums/general.dart';
 export './enums/auth.dart';
+export './enums/text.dart';
 
 // Models exports
 export './models/text_field_validator.dart';
@@ -69,6 +70,7 @@ export './models/toggle_buttons.dart';
 export './models/settings_item.dart';
 export './models/local_notification.dart';
 export './models/bottom_navigation_bar.dart';
+export './models/text.dart';
 
 // Services exports
 export './services/storage.dart';

@@ -17,6 +17,7 @@ class CuReHeading extends StatelessWidget {
     this.fontFamily,
     this.decoration,
     this.overflow,
+    this.gradient,
   });
 
   final String title;
@@ -32,6 +33,7 @@ class CuReHeading extends StatelessWidget {
   final String? fontFamily;
   final TextDecoration? decoration;
   final TextOverflow? overflow;
+  final CuReGradient? gradient;
 
   @override
   Widget build(BuildContext context) {
@@ -49,6 +51,7 @@ class CuReHeading extends StatelessWidget {
       fontFamily: fontFamily,
       decoration: decoration,
       overflow: overflow,
+      gradient: gradient,
     );
   }
 }

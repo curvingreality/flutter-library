@@ -18,6 +18,7 @@ class CuReText extends StatelessWidget {
     this.letterSpacing,
     this.fontFamily,
     this.fontStyle,
+    this.gradient,
   });
 
   final String text;
@@ -34,32 +35,77 @@ class CuReText extends StatelessWidget {
   final double? letterSpacing;
   final String? fontFamily;
   final FontStyle? fontStyle;
+  final CuReGradient? gradient;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: padding ?? EdgeInsets.zero,
-      child: Text(
-        text,
-        maxLines: maxLines,
-        textAlign: align ?? TextAlign.start,
-        overflow: overflow,
-        style: TextStyle(
-          fontSize: size ?? 16,
-          color: _getColor(),
-          fontWeight: weight ?? FontWeight.normal,
-          height: lineHeight ?? 1.5,
-          decoration: decoration ?? TextDecoration.none,
-          shadows: shadows,
-          letterSpacing: letterSpacing,
-          fontFamily: fontFamily,
-          fontStyle: fontStyle,
-        ),
+        padding: padding ?? EdgeInsets.zero,
+        child: gradient != null ? _getGradient() : _getText());
+  }
+
+  Text _getText() {
+    return Text(
+      text,
+      maxLines: maxLines,
+      textAlign: align ?? TextAlign.start,
+      overflow: overflow,
+      style: TextStyle(
+        fontSize: size ?? 16,
+        color: _getColor(),
+        fontWeight: weight ?? FontWeight.normal,
+        height: lineHeight ?? 1.5,
+        decoration: decoration ?? TextDecoration.none,
+        shadows: shadows,
+        letterSpacing: letterSpacing,
+        fontFamily: fontFamily,
+        fontStyle: fontStyle,
       ),
     );
   }
 
+  Widget _getGradient() {
+    switch (gradient!.type) {
+      case CuReGradientType.radial:
+        return ShaderMask(
+          shaderCallback: (bounds) {
+            return RadialGradient(
+              colors: gradient!.colors,
+              center: Alignment.center,
+              radius: 0.5,
+            ).createShader(bounds);
+          },
+          child: _getText(),
+        );
+      case CuReGradientType.sweep:
+        return ShaderMask(
+          shaderCallback: (bounds) {
+            return SweepGradient(
+              colors: gradient!.colors,
+              center: Alignment.center,
+            ).createShader(bounds);
+          },
+          child: _getText(),
+        );
+      default:
+        return ShaderMask(
+          shaderCallback: (bounds) {
+            return LinearGradient(
+              colors: gradient!.colors,
+              begin: gradient!.begin ?? Alignment.topLeft,
+              end: gradient!.end ?? Alignment.bottomRight,
+            ).createShader(bounds);
+          },
+          child: _getText(),
+        );
+    }
+  }
+
   Color _getColor() {
+    if (gradient != null) {
+      return Colors
+          .white; // Placeholder color when gradient is used, as Text widget does not support gradients directly.
+    }
     if (color != null) {
       return color!;
     }
